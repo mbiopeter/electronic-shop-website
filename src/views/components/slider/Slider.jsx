@@ -7,7 +7,7 @@ import { slides } from "../../../model/slider/Slider";
 
 const Slider = () => {
     return (
-        <div className="w-[75%] h-[344px] mx-auto relative">
+        <div className="w-full lg:w-[73%] h-[344px] mx-auto relative">
             <Swiper
                 pagination={{ clickable: true }}
                 modules={[Pagination]}

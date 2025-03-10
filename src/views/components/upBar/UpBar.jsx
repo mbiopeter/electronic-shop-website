@@ -39,7 +39,7 @@ const UpBar = () => {
             </div>
             
             {/* Lower Bar */}
-            <div className='px-10 lg:px-36 flex justify-between h-20 shadow-lg items-center'>
+            <div className='px-10 lg:px-36 flex justify-between h-20 shadow-lg items-center '>
                 <span className='text-xl md:text-2xl font-bold text-black'>Exclusive</span>
                 
                 <div className='hidden lg:flex gap-12'>
