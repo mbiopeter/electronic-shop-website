@@ -18,8 +18,4 @@ export const categories = [
     { name: "Electronics", link: "/electronics" },
     { name: "Home & Lifestyle", link: "/home-lifestyle" },
     { name: "Medicine", link: "/medicine" },
-    { name: "Sports & Outdoor", link: "/sports-outdoor" },
-    { name: "Baby’s & Toys", link: "/babys-toys" },
-    { name: "Groceries & Pets", link: "/groceries-pets" },
-    { name: "Health & Beauty", link: "/health-beauty" }
 ];

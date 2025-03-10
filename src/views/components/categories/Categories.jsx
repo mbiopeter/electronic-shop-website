@@ -15,7 +15,7 @@ const Categories = () => {
     };
 
     return (
-        <div className="w-[217px] bg-white border-r-[#f0eeee] border-r-[1px] p-4">
+        <div className="w-[217px] max-h-[344px] overflow-y-auto bg-white border-r-[#f0eeee] border-r-[1px] p-4">
             {categories.map((category, index) => (
                 <div key={index} className="border-0 py-2">
                     <div
