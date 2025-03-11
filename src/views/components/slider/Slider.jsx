@@ -2,8 +2,8 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/autoplay"; // Import autoplay CSS
-import { Pagination, Autoplay } from "swiper/modules"; // Import Autoplay module
+import "swiper/css/autoplay";
+import { Pagination, Autoplay } from "swiper/modules";
 import { slides } from "../../../model/slider/Slider";
 
 const Slider = () => {

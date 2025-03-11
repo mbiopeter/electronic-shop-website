@@ -4,6 +4,8 @@ import Slider from '../../components/slider/Slider';
 import BlockCategory from '../../components/categories/block';
 import { moreCategories } from '../../../model/categories/data';
 import New from '../../components/new/New';
+import Service from '../../components/service/Service';
+import { services } from '../../../model/services/services';
 
 const Home = () => {
     const [activeCategory, setActiveCategory] = useState('Camera');
@@ -18,8 +20,13 @@ const Home = () => {
                     <BlockCategory values={item} key={index} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
                 ))}
             </div>
-            <div className='py-10'>
+            <div className='py-10 h-auto'>
                 <New />
+            </div>
+            <div className='flex flex-col lg:flex-row gap-7 items-center justify-center'>
+                {services.map((item,index) => (
+                    <Service values={item} key={index}/>
+                ))}
             </div>
         </div>
     )

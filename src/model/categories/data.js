@@ -23,7 +23,13 @@ export const categories = [
             { name: "Pants", link: "/mens-fashion/pants" }
         ]
     },
-    { name: "Electronics", link: "/electronics" },
+    {
+        name: "Electronics", link: "/electronics",
+        subcategories: [
+            { name: "Dresses", link: "/womens-fashion/dresses" },
+            { name: "Tops", link: "/womens-fashion/tops" }
+        ]
+    },
     { name: "Home & Lifestyle", link: "/home-lifestyle" },
     { name: "Medicine", link: "/medicine" },
 ];
