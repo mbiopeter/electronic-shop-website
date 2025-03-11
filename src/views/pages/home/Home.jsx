@@ -3,6 +3,7 @@ import Categories from '../../components/categories/Categories';
 import Slider from '../../components/slider/Slider';
 import BlockCategory from '../../components/categories/block';
 import { moreCategories } from '../../../model/categories/data';
+import New from '../../components/new/New';
 
 const Home = () => {
     const [activeCategory, setActiveCategory] = useState('Camera');
@@ -16,6 +17,9 @@ const Home = () => {
                 {moreCategories.map((item,index) => (
                     <BlockCategory values={item} key={index} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
                 ))}
+            </div>
+            <div className='py-10'>
+                <New />
             </div>
         </div>
     )
