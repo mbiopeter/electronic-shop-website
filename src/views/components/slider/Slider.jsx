@@ -2,7 +2,8 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import "swiper/css/autoplay"; // Import autoplay CSS
+import { Pagination, Autoplay } from "swiper/modules"; // Import Autoplay module
 import { slides } from "../../../model/slider/Slider";
 
 const Slider = () => {
@@ -10,8 +11,9 @@ const Slider = () => {
         <div className="w-full lg:w-[73%] h-[344px] mx-auto relative">
             <Swiper
                 pagination={{ clickable: true }}
-                modules={[Pagination]}
+                modules={[Pagination, Autoplay]} 
                 loop={true}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
                 className="overflow-hidden">
                 {slides.map((slide) => (
                     <SwiperSlide key={slide.id} className="relative bg-black">
@@ -28,8 +30,7 @@ const Slider = () => {
                         </div>
                     </SwiperSlide>
                 ))}
-                {/* Custom Pagination Style */}
-                <div className="swiper-pagination !absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10"></div>
+                <div className="swiper-pagination !absolute bottom-4  left-1/2 transform -translate-x-1/2 z-10"></div>
             </Swiper>
         </div>
     );
