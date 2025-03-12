@@ -78,7 +78,12 @@ const UpBar = () => {
                             className='border-none outline-none text-sm text-black w-36' />
                         <SearchIcon className='text-gray-500' />
                     </div>
-                    <FavoriteBorderIcon className='text-gray-500 cursor-pointer' />
+                    <Link to={'/wishlist'} >
+                        <div className='relative'>
+                            <FavoriteBorderIcon className='text-gray-500 cursor-pointer' />
+                            <div className='absolute bg-[#DB4444] w-[17px] h-[17px] p-[1px] -top-1 -right-1 rounded-full flex items-center justify-center text-[9px] text-[#FAFAFA] font-[400]'>4</div>
+                        </div>
+                    </Link>
                     <Link to={'/cart'} >
                         <div className='relative'>
                             <ShoppingCartOutlinedIcon className='text-gray-500 cursor-pointer' />
