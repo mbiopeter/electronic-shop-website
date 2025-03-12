@@ -10,6 +10,7 @@ import SubHeading from '../../components/subheading/Subheading';
 import { bestSellings, products } from '../../../model/products/products';
 import Products from '../../components/products/Products';
 import Button from '../../components/button/Button';
+import Middlecard from '../../components/banner/Banner';
 
 const Home = () => {
     const [activeCategory, setActiveCategory] = useState('Camera');
@@ -22,7 +23,7 @@ const Home = () => {
             <div className='my-10'>
                 <SubHeading heading="Today's" title={'Flash Sales'} timer={true}/>
             </div>
-            <div className='flex flex-row gap-5 flex-nowrap justify-start items-center overflow-auto'>
+            <div className='flex flex-row pb-10 gap-5 flex-nowrap justify-start items-center overflow-auto'>
                 {products.map((item,index) => (
                     <Products item={item} key={index}/>
                 ))}
@@ -32,7 +33,7 @@ const Home = () => {
             </div>
             <div className='flex flex-col pb-[10px] lg:pb-[20px]  pt-15 border-t-[1px] border-t-[#ddd]'>
                 <SubHeading heading="Category" title={'Browse By Category'}/>
-                <div className='flex flex-row overflow-x-auto gap-5 lg:gap-10'>
+                <div className='flex flex-row overflow-x-auto gap-5 pb-10 lg:gap-10'>
                     {moreCategories.map((item,index) => (
                         <BlockCategory values={item} key={index} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
                     ))}
@@ -47,8 +48,8 @@ const Home = () => {
                     ))}
                 </div>
             </div>
-            <div>
-                
+            <div className='my-10'>
+                <Middlecard />
             </div>
             <div className='py-10 h-auto'>
                 <New />
