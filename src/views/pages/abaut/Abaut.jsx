@@ -142,4 +142,4 @@ const Abaut = () => {
     )
 }
 
-export default Abaut
+export default Abaut;
