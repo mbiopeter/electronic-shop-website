@@ -20,7 +20,11 @@
     "date-fns": "^3.6.0",
     "dayjs": "^1.11.13",
     "framer-motion": "^12.4.7",
+<<<<<<< HEAD
     "primeflex": "^4.0.0",
+=======
+    "lucide-react": "^0.479.0",
+>>>>>>> 23846ebb65fc02ba978edbec685bf01f4fda11c3
     "primeicons": "^7.0.0",
     "primereact": "^10.9.2",
     "react": "^19.0.0",
@@ -29,7 +33,12 @@
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.2.0",
     "rsuite": "^5.78.0",
+<<<<<<< HEAD
     "swiper": "^11.2.5"
+=======
+    "swiper": "^11.2.5",
+    "tailwindcss": "^4.0.8"
+>>>>>>> 23846ebb65fc02ba978edbec685bf01f4fda11c3
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",

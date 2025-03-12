@@ -14,7 +14,7 @@ const Footer = () => {
                     <span className='font-[700] text-[20px] text-[#FAFAFA]'>Exclusive</span>
                     <span className='font-[500] text-[16px] pt-[10px] text-[#FAFAFA]'>Subscribe</span>
                     <span className='font-[400] text-[14px] pt-[5px] text-[#FAFAFA]'>Get 10% off your first order</span>
-                    <div className='flex mt-2 items-center border border-[#ddd] rounded-[4px] px-4 py-2 shadow-sm'>
+                    <div className='flex mt-2 items-center justify-between border border-[#ddd] rounded-[4px] px-4 py-2 shadow-sm'>
                         <input 
                             type='text' 
                             placeholder='Enter your email' 
