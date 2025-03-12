@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SearchIcon from '@mui/icons-material/Search';
@@ -12,12 +12,39 @@ import { Link } from 'react-router-dom';
 const UpBar = () => {
     const [active, setActive] = useState('Home');
     const [isOpen, setIsOpen] = useState(false);
+    const [isSticky, setIsSticky] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const lowerBarRef = useRef(null);
+
+    const handleScroll = () => {
+        if (!lowerBarRef.current) return;
+
+        const lowerBarTop = lowerBarRef.current.getBoundingClientRect().top;
+        const scrollY = window.scrollY;
+
+        if (scrollY > lastScrollY) { 
+            if (lowerBarTop <= 0) {
+                setIsSticky(true);
+            }
+        } else { 
+            setIsSticky(true);
+        }
+
+        setLastScrollY(scrollY);
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [lastScrollY]);
 
     const navLinks = [
         { name: 'Home', to: '/' },
         { name: 'Contact', to: '/contact' },
         { name: 'About', to: '/about' },
-        { name: 'Sign Up', to: '/signup' },
+        { name: 'Sign Up', to: '/auth' },
     ];
 
     return (
@@ -39,7 +66,10 @@ const UpBar = () => {
             </div>
             
             {/* Lower Bar */}
-            <div className='px-10 lg:px-36 flex justify-between h-20 shadow-lg items-center '>
+            <div 
+                ref={lowerBarRef} 
+                className={`px-10 lg:px-36 flex justify-between h-20 shadow-lg items-center transition-all duration-300 ${isSticky ? 'fixed top-0 left-0 w-full bg-white z-50 shadow-md' : ''}`}
+            >
                 <span className='text-xl md:text-2xl font-bold text-black'>Exclusive</span>
                 
                 <div className='hidden lg:flex gap-12'>

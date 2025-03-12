@@ -4,6 +4,7 @@ import { PrimeReactProvider } from 'primereact/api';
 import UpBar from "./views/components/upBar/UpBar";
 import Footer from "./views/components/footer/Footer";
 import Home from "./views/pages/home/Home";
+import Authentication from "./views/pages/authentication/Authentication";
 
 const NotFound = () => <h2>404 - Page Not Found</h2>;
 
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             {/*Pages routes */}
             <Route path="/" element={<Home />} />
+            <Route path="/auth" element={<Authentication />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           {/* footer */}
