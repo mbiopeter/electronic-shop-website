@@ -79,10 +79,12 @@ const UpBar = () => {
                         <SearchIcon className='text-gray-500' />
                     </div>
                     <FavoriteBorderIcon className='text-gray-500 cursor-pointer' />
-                    <div className='relative'>
-                        <ShoppingCartOutlinedIcon className='text-gray-500 cursor-pointer' />
-                        <div className='absolute bg-[#DB4444] w-[17px] h-[17px] p-[1px] -top-1 -right-1 rounded-full flex items-center justify-center text-[9px] text-[#FAFAFA] font-[400]'>2</div>
-                    </div>
+                    <Link to={'/cart'} >
+                        <div className='relative'>
+                            <ShoppingCartOutlinedIcon className='text-gray-500 cursor-pointer' />
+                            <div className='absolute bg-[#DB4444] w-[17px] h-[17px] p-[1px] -top-1 -right-1 rounded-full flex items-center justify-center text-[9px] text-[#FAFAFA] font-[400]'>2</div>
+                        </div>
+                    </Link>
                     <div 
                         className='bg-[#DB4444] rounded-full flex items-center justify-center p-1 cursor-pointer' 
                         onClick={() => {
