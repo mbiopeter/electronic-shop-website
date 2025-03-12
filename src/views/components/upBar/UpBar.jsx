@@ -23,7 +23,7 @@ const UpBar = () => {
     const navLinks = [
         { name: 'Home', to: '/' },
         { name: 'Contact', to: '/contact' },
-        { name: 'About', to: '/about' },
+        { name: 'About', to: '/abaut' },
         { name: 'Sign Up', to: '/auth' },
     ];
 

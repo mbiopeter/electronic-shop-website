@@ -23,7 +23,7 @@ const Home = () => {
             <div className='py-10 h-auto'>
                 <New />
             </div>
-            <div className='flex flex-col lg:flex-row gap-7 items-center justify-center'>
+            <div className='flex flex-col lg:flex-row gap-15 mt-10 items-center justify-center'>
                 {services.map((item,index) => (
                     <Service values={item} key={index}/>
                 ))}
