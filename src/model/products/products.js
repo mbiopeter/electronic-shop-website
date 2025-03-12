@@ -51,3 +51,41 @@ export const products = [
 		no_of_rates: 100,
 	},
 ];
+export const bestSellings = [
+	{
+		product_name: "My Product1",
+		img: product1,
+		price: 120,
+		original_price: 160,
+		discount: -40,
+		ratings: 4,
+		no_of_rates: 81,
+	},
+	{
+		product_name: "My Product2",
+		img: product2,
+		price: 140,
+		original_price: 180,
+		discount: -35,
+		ratings: 2.5,
+		no_of_rates: 73,
+	},
+	{
+		product_name: "My Product3",
+		img: product3,
+		price: 139,
+		original_price: 164,
+		discount: -24,
+		ratings: 3,
+		no_of_rates: 22,
+	},
+	{
+		product_name: "My Product4",
+		img: product4,
+		price: 122,
+		original_price: 156,
+		discount: -35,
+		ratings: 4,
+		no_of_rates: 88,
+	}
+];

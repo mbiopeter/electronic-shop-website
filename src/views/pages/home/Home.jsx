@@ -7,7 +7,7 @@ import New from '../../components/new/New';
 import Service from '../../components/service/Service';
 import { services } from '../../../model/services/services';
 import SubHeading from '../../components/subheading/Subheading';
-import { products } from '../../../model/products/products';
+import { bestSellings, products } from '../../../model/products/products';
 import Products from '../../components/products/Products';
 import Button from '../../components/button/Button';
 
@@ -20,7 +20,7 @@ const Home = () => {
                 <Slider />
             </div>
             <div className='my-10'>
-                <SubHeading />
+                <SubHeading heading="Today's" title={'Flash Sales'} timer={true}/>
             </div>
             <div className='flex flex-row gap-5 flex-nowrap justify-start items-center overflow-auto'>
                 {products.map((item,index) => (
@@ -30,10 +30,25 @@ const Home = () => {
             <div className='w-full my-10 flex items-center justify-center'>
                 <Button value='View All Products' />
             </div>
-            <div className='flex flex-row overflow-x-auto pb-[10px] lg:pb-[20px] gap-5 lg:gap-10 pt-15 border-t-[1px] border-t-[#ddd]'>
-                {moreCategories.map((item,index) => (
-                    <BlockCategory values={item} key={index} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
-                ))}
+            <div className='flex flex-col pb-[10px] lg:pb-[20px]  pt-15 border-t-[1px] border-t-[#ddd]'>
+                <SubHeading heading="Category" title={'Browse By Category'}/>
+                <div className='flex flex-row overflow-x-auto gap-5 lg:gap-10'>
+                    {moreCategories.map((item,index) => (
+                        <BlockCategory values={item} key={index} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
+                    ))}
+                </div>
+            </div>
+
+            <div className='flex flex-col pb-[10px] lg:pb-[20px]  pt-15 border-t-[1px] border-t-[#ddd]'>
+                <SubHeading heading="This Month" title={'Best Selling Products'} btn={true} btnText='View All'/>
+                <div className='grid grid-cols-2 gap-5 sm:grid-cols-2 lg:flex lg:flex-nowrap  justify-center items-center'>
+                    {bestSellings.map((item, index) => (
+                        <Products item={item} key={index} />
+                    ))}
+                </div>
+            </div>
+            <div>
+                
             </div>
             <div className='py-10 h-auto'>
                 <New />
