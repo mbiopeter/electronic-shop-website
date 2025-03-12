@@ -5,7 +5,7 @@ import Products from '../../components/products/Products'
 
 const WishList = () => {
     return (
-        <div className=' w-full flex  flex-col py-[20px] px-[50px] lg:px-[130px]'>
+        <div className=' w-full flex  flex-col px-[50px] lg:px-[130px]'>
             <div className='flex flex-col pb-[10px] lg:pb-[20px]  pt-15 '>
                 <SubHeading heading="WishList(4)" title='Liked Products' btn={true} btnText='See All'/>
                 <div className='grid grid-cols-2 gap-10 sm:grid-cols-2 lg:flex lg:flex-nowrap  justify-center items-center'>
