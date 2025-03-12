@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import EastIcon from '@mui/icons-material/East';
 import Button from '../button/Button';
-const SubHeading = ({heading, title, timer, btn, btnText}) => {
+const SubHeading = ({heading, title, timer, btn, btnText, section}) => {
     const calculateTimeLeft = () => {
         const targetDate = new Date();
         targetDate.setDate(targetDate.getDate() + 3); // 3 days countdown
@@ -61,7 +61,9 @@ const SubHeading = ({heading, title, timer, btn, btnText}) => {
                     </div>}
                 </div>
                 <div className='hidden lg:flex flex-row gap-3'>
-                    {!btn ? (
+                    {section === 'New' ? (
+                        <></>
+                    ): !btn ? (
                         <>
                             <span className='flex cursor-pointer items-center justify-center h-[46px] w-[46px] rounded-full bg-[#f5f3f3]'>
                                 <KeyboardBackspaceIcon fontSize='small' className='text-[#000000]' />

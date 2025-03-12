@@ -7,10 +7,10 @@ import New from '../../components/new/New';
 import Service from '../../components/service/Service';
 import { services } from '../../../model/services/services';
 import SubHeading from '../../components/subheading/Subheading';
-import { bestSellings, products } from '../../../model/products/products';
+import { bestSellings, explore, products } from '../../../model/products/products';
 import Products from '../../components/products/Products';
 import Button from '../../components/button/Button';
-import Middlecard from '../../components/banner/Banner';
+import Banner from '../../components/Banner/Banner';
 
 const Home = () => {
     const [activeCategory, setActiveCategory] = useState('Camera');
@@ -42,16 +42,32 @@ const Home = () => {
 
             <div className='flex flex-col pb-[10px] lg:pb-[20px]  pt-15 border-t-[1px] border-t-[#ddd]'>
                 <SubHeading heading="This Month" title={'Best Selling Products'} btn={true} btnText='View All'/>
-                <div className='grid grid-cols-2 gap-5 sm:grid-cols-2 lg:flex lg:flex-nowrap  justify-center items-center'>
+                <div className='grid grid-cols-2 gap-10 sm:grid-cols-2 lg:flex lg:flex-nowrap  justify-center items-center'>
                     {bestSellings.map((item, index) => (
                         <Products item={item} key={index} />
                     ))}
                 </div>
             </div>
+
             <div className='my-10'>
-                <Middlecard />
+                <Banner />
             </div>
-            <div className='py-10 h-auto'>
+
+            <div className='flex flex-col pb-[10px] lg:pb-[20px]  pt-15 border-t-[1px] border-t-[#ddd]'>
+                <SubHeading heading="Our Products" title={'Explore Our Products'}/>
+                <div className='grid grid-cols-2 gap-10 sm:grid-cols-2 lg:flex lg:flex-wrap  justify-center items-center'>
+                    {explore.map((item, index) => (
+                        <Products item={item} key={index} />
+                    ))}
+                </div>
+            </div>
+
+            <div className='w-full my-10 flex items-center justify-center'>
+                <Button value='View All Products' />
+            </div>
+
+            <div className='py-10 h-auto flex flex-col gap-5'>
+                <SubHeading heading="Featured" title={'New Arrival'} btn={false} section={'New'}/>
                 <New />
             </div>
             <div className='flex flex-col lg:flex-row gap-15 mt-10 items-center justify-center'>
