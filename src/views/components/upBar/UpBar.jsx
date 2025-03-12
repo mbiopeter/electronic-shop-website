@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SearchIcon from '@mui/icons-material/Search';
@@ -8,37 +8,17 @@ import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Link } from 'react-router-dom';
+import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
+import PersonIcon from '@mui/icons-material/Person';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
+import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
+import PreviewIcon from '@mui/icons-material/Preview';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 const UpBar = () => {
     const [active, setActive] = useState('Home');
     const [isOpen, setIsOpen] = useState(false);
-    const [isSticky, setIsSticky] = useState(false);
-    const [lastScrollY, setLastScrollY] = useState(0);
-    const lowerBarRef = useRef(null);
-
-    const handleScroll = () => {
-        if (!lowerBarRef.current) return;
-
-        const lowerBarTop = lowerBarRef.current.getBoundingClientRect().top;
-        const scrollY = window.scrollY;
-
-        if (scrollY > lastScrollY) { 
-            if (lowerBarTop <= 0) {
-                setIsSticky(true);
-            }
-        } else { 
-            setIsSticky(true);
-        }
-
-        setLastScrollY(scrollY);
-    };
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [lastScrollY]);
+    const [dropdownVisible, setDropdownVisible] = useState(false);
 
     const navLinks = [
         { name: 'Home', to: '/' },
@@ -47,8 +27,16 @@ const UpBar = () => {
         { name: 'Sign Up', to: '/auth' },
     ];
 
+    const userDropdownData = [
+        { name: 'Manage My Account', icon: <PersonIcon fontSize='small' className='text-[#FAFAFA]' /> },
+        { name: 'My Order', icon: <LocalMallIcon fontSize='small' className='text-[#FAFAFA]' /> },
+        { name: 'My Cancellations', icon: <DoNotDisturbIcon fontSize='small' className='text-[#FAFAFA]' />},
+        { name: 'My Reviews', icon: <PreviewIcon fontSize='small' className='text-[#FAFAFA]' /> },
+        { name: 'Log Out', icon: <ExitToAppIcon fontSize='small' className='text-[#FAFAFA]' />, isRed:true},
+    ];
+
     return (
-        <div className='w-full flex-col'>
+        <div className='w-full flex-col sticky top-0 z-50'>
             {/* Top most bar */}
             <div className='h-[48px] w-full flex items-center px-[50px] lg:px-[150px] justify-end bg-black'>
                 <div className='flex justify-end md:justify-between w-3/4'>
@@ -64,12 +52,10 @@ const UpBar = () => {
                     </div>
                 </div>
             </div>
-            
+
             {/* Lower Bar */}
             <div 
-                ref={lowerBarRef} 
-                className={`px-10 lg:px-36 flex justify-between h-20 shadow-lg items-center transition-all duration-300 ${isSticky ? 'fixed top-0 left-0 w-full bg-white z-50 shadow-md' : ''}`}
-            >
+                className={`px-10 lg:px-36 relative flex justify-between h-20 shadow-lg items-center bg-white`}>
                 <span className='text-xl md:text-2xl font-bold text-black'>Exclusive</span>
                 
                 <div className='hidden lg:flex gap-12'>
@@ -84,24 +70,56 @@ const UpBar = () => {
                     ))}
                 </div>
 
-                <div className='hidden lg:flex items-center gap-6'>
-                    <div className='flex items-center border border-gray-300 rounded-full px-4 py-2 shadow-sm'>
+                <div className='flex items-center gap-6'>
+                    <div className='hidden lg:flex items-center border border-gray-300 rounded-full px-4 py-2 shadow-sm'>
                         <input 
                             type='text' 
                             placeholder='Search anything...' 
-                            className='border-none outline-none text-sm text-black w-36' 
-                        />
+                            className='border-none outline-none text-sm text-black w-36' />
                         <SearchIcon className='text-gray-500' />
                     </div>
                     <FavoriteBorderIcon className='text-gray-500 cursor-pointer' />
-                    <ShoppingCartOutlinedIcon className='text-gray-500 cursor-pointer' />
+                    <div className='relative'>
+                        <ShoppingCartOutlinedIcon className='text-gray-500 cursor-pointer' />
+                        <div className='absolute bg-[#DB4444] w-[17px] h-[17px] p-[1px] -top-1 -right-1 rounded-full flex items-center justify-center text-[9px] text-[#FAFAFA] font-[400]'>2</div>
+                    </div>
+                    <div 
+                        className='bg-[#DB4444] rounded-full flex items-center justify-center p-1 cursor-pointer' 
+                        onClick={() => {
+                            setDropdownVisible(!dropdownVisible);
+                            setIsOpen(false)
+                        }} >
+                        <PersonOutlinedIcon fontSize='small' className='text-[#FAFAFA]' />
+                    </div>
+                    <div className='lg:hidden' onClick={() => {
+                            setIsOpen(true)
+                            setDropdownVisible(false)
+                        }} >
+                        <MenuOutlinedIcon className='text-black cursor-pointer' />
+                    </div>
                 </div>
-                
-                <div className='lg:hidden' onClick={() => setIsOpen(true)}>
-                    <MenuOutlinedIcon fontSize='medium' className='text-black cursor-pointer' />
-                </div>
+
+                {/* User Dropdown */}
+                <AnimatePresence>
+                    {dropdownVisible && (
+                        <motion.div 
+                            initial={{ opacity: 0 }} 
+                            animate={{ opacity: 1 }} 
+                            exit={{ opacity: 0 }} 
+                            transition={{ duration: 0.3 }}
+                            className="absolute top-full z-100 right-[58px] lg:right-[140px] w-[250px] bg-[#1E1F55FF] opacity-[0.9] backdrop-blur-lg shadow-lg rounded-sm p-2">
+                            <ul className="flex flex-col space-y-2">
+                                {userDropdownData.map((item, index) => (
+                                    <li key={index} className={`text-[16px] text-[#FAFAFA] font-[400] flex items-center gap-2 p-2 hover:bg-[#000000] cursor-pointer ${item.isRed ? 'text-red-600' : ''}`}>
+                                        <span>{item.icon}</span> {item.name}
+                                    </li>
+                                ))}
+                            </ul>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
-            
+
             {/* Mobile Navigation Pop-up */}
             <AnimatePresence>
                 {isOpen && (
@@ -131,9 +149,10 @@ const UpBar = () => {
                             ))}
                         </div>
                         
-                        <div className='mt-auto flex justify-center items-center gap-3 cursor-pointer'>
-                            <LoginOutlinedIcon fontSize='large' className='text-black' />
-                            <span className='text-xl font-bold text-black'>Logout</span>
+                        <div className='mt-auto flex items-center justify-center'>
+                            <button className='bg-[#DB4444] px-5 py-2 rounded-full text-white text-lg'>
+                                Log In / Sign Up
+                            </button>
                         </div>
                     </motion.div>
                 )}
