@@ -9,6 +9,7 @@ import { services } from '../../../model/services/services';
 import SubHeading from '../../components/subheading/Subheading';
 import { products } from '../../../model/products/products';
 import Products from '../../components/products/Products';
+import Button from '../../components/button/Button';
 
 const Home = () => {
     const [activeCategory, setActiveCategory] = useState('Camera');
@@ -25,6 +26,9 @@ const Home = () => {
                 {products.map((item,index) => (
                     <Products item={item} key={index}/>
                 ))}
+            </div>
+            <div className='w-full my-10 flex items-center justify-center'>
+                <Button value='View All Products' />
             </div>
             <div className='flex flex-row overflow-x-auto pb-[10px] lg:pb-[20px] gap-5 lg:gap-10 pt-15 border-t-[1px] border-t-[#ddd]'>
                 {moreCategories.map((item,index) => (

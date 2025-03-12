@@ -38,7 +38,7 @@ const SubHeading = () => {
                 <p className="text-[14px] text-[#DB4444] lg:text-[16px] font-[600]">Today's</p>
             </div>
             <div className='w-full flex flex-row items-center justify-between'>
-                <div className=' flex flex-row items-end gap-10'>
+                <div className=' flex flex-col items-start gap-3 md:flex-row md:items-end md:gap-10'>
                     <h2 className="text-[22px] lg:text-[36px] font-[700]">Flash Sales</h2>
                     <div className="flex gap-7 text-lg font-semibold">
                         <div className='flex flex-col items-center'>
