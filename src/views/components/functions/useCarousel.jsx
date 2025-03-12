@@ -5,8 +5,6 @@ import Products from "../cards/Products.jsx";
 const useCarousel = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [itemsPerPage, setItemsPerPage] = useState(3);
-
-	// Update itemsPerPage based on screen width
 	useEffect(() => {
 		const updateItemsPerPage = () => {
 			if (window.innerWidth >= 1280) {

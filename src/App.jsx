@@ -17,25 +17,6 @@ import Abaut from "./views/pages/abaut/Abaut";
 const NotFound = () => <h2>404 - Page Not Found</h2>;
 
 function App() {
-<<<<<<< HEAD
-	return (
-		<PrimeReactProvider>
-			<Router>
-				<div>
-					{/* upbar */}
-					<UpBar />
-					<Routes>
-						{/*Pages routes */}
-						<Route path="*" element={<NotFound />} />
-					</Routes>
-					{/* footer */}
-
-					<Footer />
-				</div>
-			</Router>
-		</PrimeReactProvider>
-	);
-=======
   return (
     <PrimeReactProvider>
       <Router>
@@ -56,7 +37,6 @@ function App() {
       </Router>
     </PrimeReactProvider>
   );
->>>>>>> 23846ebb65fc02ba978edbec685bf01f4fda11c3
 }
 
 export default App;
