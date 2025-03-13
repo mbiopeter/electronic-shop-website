@@ -14,6 +14,7 @@ import LocalMallIcon from '@mui/icons-material/LocalMall';
 import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
 import PreviewIcon from '@mui/icons-material/Preview';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { wishList } from '../../../model/products/products';
 
 const UpBar = () => {
     const [active, setActive] = useState('Home');
@@ -34,6 +35,8 @@ const UpBar = () => {
         { name: 'My Reviews', icon: <PreviewIcon fontSize='small' className='text-[#FAFAFA]' /> },
         { name: 'Log Out', icon: <ExitToAppIcon fontSize='small' className='text-[#FAFAFA]' />, isRed:true},
     ];
+
+    const liked = wishList.length;
 
     return (
         <div className='w-full flex-col sticky top-0 z-50'>
@@ -81,7 +84,7 @@ const UpBar = () => {
                     <Link to={'/wishlist'} >
                         <div className='relative'>
                             <FavoriteBorderIcon className='text-gray-500 cursor-pointer' />
-                            <div className='absolute bg-[#DB4444] w-[17px] h-[17px] p-[1px] -top-1 -right-1 rounded-full flex items-center justify-center text-[9px] text-[#FAFAFA] font-[400]'>4</div>
+                            <div className='absolute bg-[#DB4444] w-[17px] h-[17px] p-[1px] -top-1 -right-1 rounded-full flex items-center justify-center text-[9px] text-[#FAFAFA] font-[400]'>{liked}</div>
                         </div>
                     </Link>
                     <Link to={'/cart'} >

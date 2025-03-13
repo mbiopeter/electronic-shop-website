@@ -7,7 +7,7 @@ const BlockCategory = ({values, key, activeCategory, setActiveCategory}) => {
                 <div className='h-[20px] md:h-[30px] lg:h-[40px]'>
                     <img src={values.img} className='w-[20px] md:w-[25px] lg:w-[30px]'/>
                 </div>    
-                <span className={`text-[13px] lg:text-[16px] font-[400] font-poppins text-[#000000] ${activeCategory === values.name && 'text-[#FAFAFA]'}`}>{values.name}</span>
+                <span className={`text-[13px] text-center lg:text-[16px] font-[400] font-poppins text-[#000000] ${activeCategory === values.name && 'text-[#FAFAFA]'}`}>{values.name}</span>
             </div>
         </div>
     )

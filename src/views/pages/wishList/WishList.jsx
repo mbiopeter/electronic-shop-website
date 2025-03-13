@@ -4,6 +4,7 @@ import SubHeading from '../../components/subheading/Subheading'
 import Products from '../../components/products/Products'
 
 const WishList = () => {
+
     return (
         <div className=' w-full flex  flex-col px-[50px] lg:px-[130px]'>
             <div className='flex flex-col pb-[10px] lg:pb-[20px]  pt-15 '>

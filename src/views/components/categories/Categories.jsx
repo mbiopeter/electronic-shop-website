@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { ExpandMore, ChevronRight } from "@mui/icons-material";
+import { ChevronRight } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import { categories } from "../../../model/categories/data";
+import { BasicCategories } from "../../../model/categories/category";
 
 
 const Categories = () => {
@@ -18,7 +18,7 @@ const Categories = () => {
         <>
             {/* large screens view */}
             <div className="hidden lg:block  w-[217px] max-h-[344px] overflow-y-auto bg-white border-r-[#f0eeee] border-r-[1px] p-4">
-                {categories.map((category, index) => (
+                {BasicCategories.map((category, index) => (
                     <div key={index} className="border-0 py-2">
                         <div
                             className="flex justify-between items-center text-[16px] cursor-pointer text-[#000000] font-[400]"
@@ -49,7 +49,7 @@ const Categories = () => {
             </div>
             {/* large screens view */}
             <div className="lg:hidden overflow-y-auto  w-full flex items-center flex-row gap-[10px] pb-[10px]">
-                {categories.map((category, index) => (
+                {BasicCategories.map((category, index) => (
                     <button key={index} className="px-[20px] w-auto text-nowrap py-[7px] border-[1px] border-[#ddd] rounded-[5px] shadow-sm cursor-pointer">
                         <span>{category.name}</span>
                     </button>

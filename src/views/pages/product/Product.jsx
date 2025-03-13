@@ -5,7 +5,8 @@ import delivery from '../../../assets/images/delivery.png';
 import reload from '../../../assets/images/reload.png';
 import SubHeading from '../../components/subheading/Subheading';
 import Products from '../../components/products/Products';
-import { explore } from '../../../model/products/products';
+import { allProducts, explore, getProductById } from '../../../model/products/products';
+import { useParams } from 'react-router-dom';
 
 const productImages = [pad, pad, pad, pad];
 const colors = ['#00FF66', '#e6a925', '#DB4444'];
@@ -15,50 +16,71 @@ const Product = () => {
     const [quantity, setQuantity] = useState(1);
     const [selectedColor, setSelectedColor] = useState(colors[0]);
     const [selectedSize, setSelectedSize] = useState(sizes[0]);
+    const [mainImage, setMainImage] = useState(null);
+    const {productId} = useParams();
 
     const increment = () => setQuantity(quantity + 1);
     const decrement = () => quantity > 1 && setQuantity(quantity - 1);
+
+    const product = getProductById(allProducts,productId);
+
+    React.useEffect(() => {
+        setMainImage(product.images[0]);
+    }, [product]);
+
+    const handleImageClick = (image) => {
+        if (image === mainImage) {
+            setMainImage(product.images[0]);
+        } else {
+            setMainImage(image);
+        }
+    };
 
     return (
         <div className='w-full flex flex-col py-5 px-5 lg:px-20'>
             <div className="flex justify-start items-center py-4">
                 <div className="flex flex-row gap-1">
-                    <span className="text-sm text-gray-500">Account</span>/
+                    <span className="text-sm text-gray-500">Account</span>/ 
                     <span className="text-sm text-black">Product</span>
                 </div>
             </div>
 
             <div className='w-full flex flex-col lg:flex-row gap-10'>
-                <div className='flex flex-col lg:flex-row gap-5'>
-                    <div className='flex flex-row lg:flex-col gap-3'>
-                        {productImages.map((image, index) => (
-                            <div key={index} className='w-24 h-24 p-2 shadow-sm flex items-center justify-center rounded-sm'>
+                <div className='flex lg:w-[50%] flex-col lg:flex-row gap-5'>
+                    <div className='flex flex-row lg:flex-col gap-5'>
+                        {product.images.slice(1).map((image, index) => (
+                            <div 
+                                key={index} 
+                                className='w-24 h-24 p-2 shadow-sm flex overflow-hidden items-center justify-center rounded-sm'
+                                onClick={() => handleImageClick(image)}>
                                 <img src={image} className='w-full' alt='product' />
                             </div>
                         ))}
                     </div>
-                    <div className='shadow-sm p-5 flex items-center justify-center'>
-                        <img src={pad} className='w-full' alt='Main Product' />
+                    <div className='shadow-sm overflow-hidden max-h-[72vh] p-5 lg:min-w-[80%] flex items-center justify-center'>
+                        <img src={mainImage} className='w-full' alt='Main Product' />
                     </div>
                 </div>
 
                 <div className='shadow-sm flex flex-col gap-2 w-full lg:w-2/5 p-5'>
-                    <h2 className='text-xl font-semibold'>Havic HV G-92 Gamepad</h2>
+                    <h2 className='text-xl font-semibold'>{product.name}</h2>
                     <div className='flex items-center gap-2'>
-                        <Rating value={4} cancel={false} />
-                        <span className='text-sm'>(150 Reviews)</span>
+                        <Rating value={product.ratings} cancel={false} />
+                        <span className='text-sm'>({product.ratingsCount})</span>
                         <span className='text-sm'>|</span>
-                        <span className='text-sm text-green-500'>In Stock</span>
+                        <span className={`text-sm ${product.amountLeft >= 50 ? 'text-green-500' : 'text-red-500'}`}>
+                            {product.amountLeft >= 50 ? 'In Stock' : product.amountLeft + ' Items Left'}
+                        </span>
                     </div>
-                    <span className='text-lg font-medium'>$192.00</span>
-                    <p className='text-sm text-gray-700'>PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble-free install & mess-free removal.</p>
+                    <span className='text-lg font-medium'>${product.price}</span>
+                    <p className='text-sm text-gray-700'>{product.description}</p>
                     <hr />
 
                     <div className='flex flex-col gap-3'>
                         <div className='flex items-center gap-3'>
                             <span className='text-md font-medium'>Colours:</span>
                             <div className='flex gap-2'>
-                                {colors.map((color, index) => (
+                                {product.variantType.color.map((color, index) => (
                                     <div 
                                         key={index} 
                                         className={`w-6 h-6 cursor-pointer rounded-sm ${selectedColor === color ? 'border-2 border-black' : ''}`}
@@ -72,10 +94,10 @@ const Product = () => {
                         <div className='flex items-center gap-3'>
                             <span className='text-md font-medium'>Size:</span>
                             <div className='flex gap-2'>
-                                {sizes.map((size, index) => (
+                                {product.variantType.size.map((size, index) => (
                                     <div 
                                         key={index} 
-                                        className={`w-8 h-8 flex items-center justify-center cursor-pointer shadow-sm rounded-sm ${selectedSize === size ? 'bg-gray-200' : ''}`}
+                                        className={`w-auto px-2 h-8 flex items-center justify-center cursor-pointer shadow-sm rounded-sm ${selectedSize === size ? 'bg-gray-200' : ''}`}
                                         onClick={() => setSelectedSize(size)}>
                                         {size}
                                     </div>
