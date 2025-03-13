@@ -12,31 +12,34 @@ import Home from "./views/pages/home/Home";
 import Authentication from "./views/pages/authentication/Authentication";
 import Cart from "./views/pages/cart/Cart";
 import Abaut from "./views/pages/abaut/Abaut";
-
+import Account from "./views/pages/account/Account";
+import Contact from "./views/pages/contact/Contact";
 
 const NotFound = () => <h2>404 - Page Not Found</h2>;
 
 function App() {
-  return (
-    <PrimeReactProvider>
-      <Router>
-        <div>
-          {/* upbar */}
-          <UpBar />
-          <Routes>
-            {/*Pages routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/auth" element={<Authentication />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/abaut" element={<Abaut />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          {/* footer */}
-          <Footer />
-        </div>
-      </Router>
-    </PrimeReactProvider>
-  );
+	return (
+		<PrimeReactProvider>
+			<Router>
+				<div>
+					{/* upbar */}
+					<UpBar />
+					<Routes>
+						{/*Pages routes */}
+						<Route path="/" element={<Home />} />
+						<Route path="/auth" element={<Authentication />} />
+						<Route path="/cart" element={<Cart />} />
+						<Route path="/abaut" element={<Abaut />} />
+						<Route path="/contact" element={<Contact />} />
+						<Route path="/account" element={<Account />} />
+						<Route path="*" element={<NotFound />} />
+					</Routes>
+					{/* footer */}
+					<Footer />
+				</div>
+			</Router>
+		</PrimeReactProvider>
+	);
 }
 
 export default App;
