@@ -6,6 +6,7 @@ import product5 from '../../assets/images/product5.png';
 
 export const products = [
 	{
+		id: 1,
 		product_name: "My Product1",
 		img: product1,
 		price: 120,
@@ -15,6 +16,7 @@ export const products = [
 		no_of_rates: 81,
 	},
 	{
+		id: 2,
 		product_name: "My Product2",
 		img: product2,
 		price: 140,
@@ -24,6 +26,7 @@ export const products = [
 		no_of_rates: 73,
 	},
 	{
+		id: 3,
 		product_name: "My Product3",
 		img: product3,
 		price: 139,
@@ -33,6 +36,7 @@ export const products = [
 		no_of_rates: 22,
 	},
 	{
+		id: 4,
 		product_name: "My Product4",
 		img: product4,
 		price: 122,
@@ -42,6 +46,7 @@ export const products = [
 		no_of_rates: 88,
 	},
 	{
+		id: 5,
 		product_name: "My Product5",
 		img: product5,
 		price: 300,
@@ -54,6 +59,7 @@ export const products = [
 
 export const bestSellings = [
 	{
+		id: 6,
 		product_name: "My Product1",
 		img: product1,
 		price: 120,
@@ -63,6 +69,7 @@ export const bestSellings = [
 		no_of_rates: 81,
 	},
 	{
+		id: 7,
 		product_name: "My Product2",
 		img: product2,
 		price: 140,
@@ -72,6 +79,7 @@ export const bestSellings = [
 		no_of_rates: 73,
 	},
 	{
+		id: 8,
 		product_name: "My Product3",
 		img: product3,
 		price: 139,
@@ -81,6 +89,7 @@ export const bestSellings = [
 		no_of_rates: 22,
 	},
 	{
+		id: 9,
 		product_name: "My Product4",
 		img: product4,
 		price: 122,
@@ -93,6 +102,7 @@ export const bestSellings = [
 
 export const explore = [
 	{
+		id: 10,
 		product_name: "My Product1",
 		img: product1,
 		price: 120,
@@ -102,6 +112,7 @@ export const explore = [
 		no_of_rates: 81,
 	},
 	{
+		id: 11,
 		product_name: "My Product2",
 		img: product2,
 		price: 140,
@@ -111,6 +122,7 @@ export const explore = [
 		no_of_rates: 73,
 	},
 	{
+		id: 12,
 		product_name: "My Product3",
 		img: product3,
 		price: 139,
@@ -120,6 +132,7 @@ export const explore = [
 		no_of_rates: 22,
 	},
 	{
+		id: 13,
 		product_name: "My Product4",
 		img: product4,
 		price: 122,
@@ -129,6 +142,7 @@ export const explore = [
 		no_of_rates: 88,
 	},
 	{
+		id: 14,
 		product_name: "My Product1",
 		img: product1,
 		price: 120,
@@ -138,6 +152,7 @@ export const explore = [
 		no_of_rates: 81,
 	},
 	{
+		id: 15,
 		product_name: "My Product2",
 		img: product2,
 		price: 140,
@@ -147,6 +162,7 @@ export const explore = [
 		no_of_rates: 73,
 	},
 	{
+		id: 16,
 		product_name: "My Product3",
 		img: product3,
 		price: 139,
@@ -156,6 +172,7 @@ export const explore = [
 		no_of_rates: 22,
 	},
 	{
+		id: 17,
 		product_name: "My Product4",
 		img: product4,
 		price: 122,
@@ -168,6 +185,7 @@ export const explore = [
 
 export const recommendations = [
 	{
+		id: 18,
 		product_name: "My Product1",
 		img: product1,
 		price: 120,
@@ -177,6 +195,7 @@ export const recommendations = [
 		no_of_rates: 81,
 	},
 	{
+		id: 19,
 		product_name: "My Product2",
 		img: product2,
 		price: 140,
@@ -186,6 +205,7 @@ export const recommendations = [
 		no_of_rates: 73,
 	},
 	{
+		id: 20,
 		product_name: "My Product3",
 		img: product3,
 		price: 139,
@@ -195,6 +215,7 @@ export const recommendations = [
 		no_of_rates: 22,
 	},
 	{
+		id: 21,
 		product_name: "My Product4",
 		img: product4,
 		price: 122,
@@ -207,6 +228,7 @@ export const recommendations = [
 
 export const wishList = [
 	{
+		id: 22,
 		product_name: "My Product1",
 		img: product1,
 		price: 120,
@@ -216,6 +238,7 @@ export const wishList = [
 		no_of_rates: 81,
 	},
 	{
+		id: 23,
 		product_name: "My Product2",
 		img: product2,
 		price: 140,
@@ -225,6 +248,7 @@ export const wishList = [
 		no_of_rates: 73,
 	},
 	{
+		id: 24,
 		product_name: "My Product3",
 		img: product3,
 		price: 139,
@@ -234,6 +258,7 @@ export const wishList = [
 		no_of_rates: 22,
 	},
 	{
+		id: 25,
 		product_name: "My Product4",
 		img: product4,
 		price: 122,
