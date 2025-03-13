@@ -15,9 +15,10 @@ import Abaut from "./views/pages/abaut/Abaut";
 import WishList from "./views/pages/wishList/WishList";
 import Billing from "./views/pages/billing/Billing";
 import Product from "./views/pages/product/Product";
+import Error404 from "./views/pages/error/Error404";
 
 
-const NotFound = () => <h2>404 - Page Not Found</h2>;
+const NotFound = () => <Error404 />;
 
 function App() {
   return (
