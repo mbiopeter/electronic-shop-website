@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import EastIcon from '@mui/icons-material/East';
 import Button from '../button/Button';
+import { countDown } from '../../../model/countDown/countDown';
 const SubHeading = ({heading, title, timer, btn, btnText, section}) => {
     const calculateTimeLeft = () => {
         const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 3); // 3 days countdown
-        targetDate.setHours(23, 19, 56); // Set hours, minutes, seconds
+        targetDate.setDate(targetDate.getDate() + countDown.days);
+        targetDate.setHours(countDown.hours, countDown.minutes, countDown.seconds);
 
         const difference = targetDate - new Date();
         let timeLeft = {};
