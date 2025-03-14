@@ -47,12 +47,14 @@ const Categories = () => {
                     </div>
                 ))}
             </div>
-            {/* large screens view */}
+            {/* small screens view */}
             <div className="lg:hidden overflow-y-auto  w-full flex items-center flex-row gap-[10px] pb-[10px]">
                 {BasicCategories.map((category, index) => (
-                    <button key={index} className="px-[20px] w-auto text-nowrap py-[7px] border-[1px] border-[#ddd] rounded-[5px] shadow-sm cursor-pointer">
+                    <Link to={category.link}>
+                        <button key={index} className="px-[20px] w-auto text-nowrap py-[7px] border-[1px] border-[#ddd] rounded-[5px] shadow-sm cursor-pointer">
                         <span>{category.name}</span>
-                    </button>
+                        </button>
+                    </Link>
                 ))}
             </div>
         </>
