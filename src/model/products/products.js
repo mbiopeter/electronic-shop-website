@@ -529,6 +529,25 @@ export const wishList = [
 			size: ["One Size"]
 		},
 		images: [product4, product5, product1, product2, product3]
+	},
+	{
+		id: 4,
+		name: "My Product4",
+		description: "An elegant and versatile product for all occasions.",
+		category: "Accessories",
+		subcategory: "Watches",
+		brand: "Brand D",
+		price: 122,
+		offerPrice: 156,
+		amountLeft: 8,
+		salesCount: 88,
+		ratings: 5,
+		ratingsCount: 300,
+		variantType: {
+			color: ["Gold", "Silver"],
+			size: ["One Size"]
+		},
+		images: [product4, product5, product1, product2, product3]
 	}
 ];
 

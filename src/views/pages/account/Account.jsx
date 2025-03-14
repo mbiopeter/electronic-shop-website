@@ -15,8 +15,8 @@ const Account = () => {
 					</span>
 				</div>
 			</div>
-			<div className="container flex flex-row justify-between h-auto mb-10 ">
-				<div className="h-full w-[35%] p-10 shadow-sm">
+			<div className="container flex flex-col gap-10 lg:gap-0 lg:flex-row justify-between h-auto mb-10 ">
+				<div className="h-full w-full lg:w-[35%] p-10 shadow-sm">
 					<div>
 						<h1 className="font-semibold">Manage My Account</h1>
 						<div className="mx-6 my-2 text-gray-500">
@@ -36,12 +36,12 @@ const Account = () => {
 						<h1 className="font-semibold">My Wishlist</h1>
 					</div>
 				</div>
-				<div className="w-[60%] h-full rounded-md p-10 shadow-sm">
+				<div className="w-full lg:w-[60%] h-full rounded-md p-10 shadow-sm">
 					<h1 className="mb-5 text-red-500 font-semibold">Edit Your Profile</h1>
 
-					<div className="grid grid-cols-2 gap-4">
+					<div className="flex w-full flex-wrap gap-4">
 						{/* First Name */}
-						<div className="flex flex-col">
+						<div className="flex w-full lg:w-[48%] flex-col">
 							<label htmlFor="fname" className="font-semibold">
 								First Name
 							</label>
@@ -55,7 +55,7 @@ const Account = () => {
 						</div>
 
 						{/* Last Name */}
-						<div className="flex flex-col">
+						<div className="flex w-full lg:w-[48%] flex-col">
 							<label htmlFor="lname" className="font-semibold">
 								Last Name
 							</label>
@@ -69,7 +69,7 @@ const Account = () => {
 						</div>
 
 						{/* Email */}
-						<div className="flex flex-col ">
+						<div className="flex w-full lg:w-[48%] flex-col ">
 							<label htmlFor="email" className="font-semibold">
 								Email
 							</label>
@@ -83,7 +83,7 @@ const Account = () => {
 						</div>
 
 						{/* Address */}
-						<div className="flex flex-col ">
+						<div className="flex w-full lg:w-[48%] flex-col ">
 							<label htmlFor="address" className="font-semibold">
 								Address
 							</label>
