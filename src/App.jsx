@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
 	BrowserRouter as Router,
 	Routes,
 	Route,
-	Outlet,
+	useLocation,
 } from "react-router-dom";
 import { PrimeReactProvider } from "primereact/api";
 import UpBar from "./views/components/upBar/UpBar";
@@ -19,6 +19,15 @@ import Error404 from "./views/pages/error/Error404";
 import Category from "./views/pages/category/Category";
 import SubCategory from "./views/subCategory/SubCategory";
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
+
+  return null;
+};
 
 const NotFound = () => <Error404 />;
 
@@ -26,11 +35,12 @@ function App() {
   return (
     <PrimeReactProvider>
       <Router>
+        <ScrollToTop />
         <div>
           {/* upbar */}
           <UpBar />
           <Routes>
-            {/*Pages routes */}
+            {/* Pages routes */}
             <Route path="/" element={<Home />} />
             <Route path="/auth" element={<Authentication />} />
             <Route path="/cart" element={<Cart />} />
