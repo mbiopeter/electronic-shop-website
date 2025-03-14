@@ -28,7 +28,7 @@ export const allProducts = [
 		id: 2,
 		name: "My Product2",
 		description: "A durable and stylish product perfect for everyday use.",
-		category: "Fashion",
+		category: "Women's Fashion",
 		subcategory: "Shoes",
 		brand: "Brand B",
 		price: 140,
@@ -47,8 +47,8 @@ export const allProducts = [
 		id: 3,
 		name: "My Product3",
 		description: "A reliable and affordable option with great features.",
-		category: "Appliances",
-		subcategory: "Kitchen",
+		category: "Home & Lifestyle",
+		subcategory: "Kitchen Appliances",
 		brand: "Brand C",
 		price: 139,
 		offerPrice: 164,
@@ -66,7 +66,7 @@ export const allProducts = [
 		id: 4,
 		name: "My Product4",
 		description: "An elegant and versatile product for all occasions.",
-		category: "Accessories",
+		category: "Men's Fashion",
 		subcategory: "Watches",
 		brand: "Brand D",
 		price: 122,
@@ -85,7 +85,7 @@ export const allProducts = [
 		id: 5,
 		name: "My Product5",
 		description: "A premium product designed for comfort and performance.",
-		category: "Sports",
+		category: "Sports & Fitness",
 		subcategory: "Fitness Equipment",
 		brand: "Brand E",
 		price: 300,
@@ -123,8 +123,8 @@ export const allProducts = [
 		id: 7,
 		name: "My Product7",
 		description: "A smart and stylish backpack with multiple compartments.",
-		category: "Fashion",
-		subcategory: "Bags",
+		category: "Women's Fashion",
+		subcategory: "Tops",
 		brand: "Brand G",
 		price: 60,
 		offerPrice: 50,
@@ -161,8 +161,8 @@ export const allProducts = [
 		id: 9,
 		name: "My Product9",
 		description: "A comfortable and durable office chair with lumbar support.",
-		category: "Furniture",
-		subcategory: "Chairs",
+		category: "Home & Lifestyle",
+		subcategory: "Furniture",
 		brand: "Brand I",
 		price: 250,
 		offerPrice: 220,
@@ -221,7 +221,7 @@ export const bestSellings = [
 		id: 2,
 		name: "My Product2",
 		description: "A durable and stylish product perfect for everyday use.",
-		category: "Fashion",
+		category: "Women's Fashion",
 		subcategory: "Shoes",
 		brand: "Brand B",
 		price: 140,
@@ -240,8 +240,8 @@ export const bestSellings = [
 		id: 3,
 		name: "My Product3",
 		description: "A reliable and affordable option with great features.",
-		category: "Appliances",
-		subcategory: "Kitchen",
+		category: "Home & Lifestyle",
+		subcategory: "Kitchen Appliances",
 		brand: "Brand C",
 		price: 139,
 		offerPrice: 164,
@@ -259,7 +259,7 @@ export const bestSellings = [
 		id: 4,
 		name: "My Product4",
 		description: "An elegant and versatile product for all occasions.",
-		category: "Accessories",
+		category: "Men's Fashion",
 		subcategory: "Watches",
 		brand: "Brand D",
 		price: 122,
@@ -274,7 +274,7 @@ export const bestSellings = [
 		},
 		images: [product4, product5, product1, product2, product3]
 	}
-]
+];
 
 export const scrollList = [
 	{
@@ -319,8 +319,8 @@ export const scrollList = [
 		id: 3,
 		name: "My Product3",
 		description: "A reliable and affordable option with great features.",
-		category: "Appliances",
-		subcategory: "Kitchen",
+		category: "Home & Lifestyle",
+		subcategory: "Kitchen Appliances",
 		brand: "Brand C",
 		price: 139,
 		offerPrice: 164,
@@ -371,8 +371,8 @@ export const scrollList = [
 			size: ["13-inch", "15-inch"]
 		},
 		images: [product1, product3, product5, product2, product4]
-	},
-]
+	}
+];
 
 export const explore = [
 	{
@@ -417,8 +417,8 @@ export const explore = [
 		id: 3,
 		name: "My Product3",
 		description: "A reliable and affordable option with great features.",
-		category: "Appliances",
-		subcategory: "Kitchen",
+		category: "Home & Lifestyle",
+		subcategory: "Kitchen Appliances",
 		brand: "Brand C",
 		price: 139,
 		offerPrice: 164,
@@ -451,7 +451,7 @@ export const explore = [
 		},
 		images: [product4, product5, product1, product2, product3]
 	}
-]
+];
 
 export const wishList = [
 	{
@@ -496,8 +496,8 @@ export const wishList = [
 		id: 3,
 		name: "My Product3",
 		description: "A reliable and affordable option with great features.",
-		category: "Appliances",
-		subcategory: "Kitchen",
+		category: "Home & Lifestyle",
+		subcategory: "Kitchen Appliances",
 		brand: "Brand C",
 		price: 139,
 		offerPrice: 164,
@@ -530,7 +530,8 @@ export const wishList = [
 		},
 		images: [product4, product5, product1, product2, product3]
 	}
-]
+];
+
 
 export const recommendations = [
 	{
@@ -575,8 +576,8 @@ export const recommendations = [
 		id: 3,
 		name: "My Product3",
 		description: "A reliable and affordable option with great features.",
-		category: "Appliances",
-		subcategory: "Kitchen",
+		category: "Home & Lifestyle",
+		subcategory: "Kitchen Appliances",
 		brand: "Brand C",
 		price: 139,
 		offerPrice: 164,
@@ -611,7 +612,16 @@ export const recommendations = [
 	}
 ]
 
+
 export const getProductById = (products, id) => {
 	const parsedId = parseInt(id, 10);
 	return products.find(product => product.id === parsedId) || null;
+};
+
+export const getProductByCategory = (products, category) => {
+	return products.filter(product => product.category?.toLowerCase() === category.toLowerCase()) || [];
+};
+
+export const getProductBySubCategory = (products, subCategory) => {
+	return products.filter(product => product.subcategory?.toLowerCase() === subCategory.toLowerCase()) || [];
 };

@@ -16,6 +16,8 @@ import WishList from "./views/pages/wishList/WishList";
 import Billing from "./views/pages/billing/Billing";
 import Product from "./views/pages/product/Product";
 import Error404 from "./views/pages/error/Error404";
+import Category from "./views/pages/category/Category";
+import SubCategory from "./views/subCategory/SubCategory";
 
 
 const NotFound = () => <Error404 />;
@@ -36,6 +38,8 @@ function App() {
             <Route path="/wishlist" element={<WishList />} />
             <Route path="/billing" element={<Billing />} />
             <Route path="/product/:productId" element={<Product />} />
+            <Route path="/category/:categoryId" element={<Category />} />
+            <Route path="/category/:categoryId/:subcategory" element={<SubCategory />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           {/* footer */}

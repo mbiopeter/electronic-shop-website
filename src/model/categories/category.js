@@ -1,4 +1,5 @@
 import gamming from "../../assets/images/gaming.png";
+import slider1 from "../../assets/images/slider1.png";
 
 
 export const BasicCategories = [
@@ -6,79 +7,79 @@ export const BasicCategories = [
         id: 1,
         img: gamming,
         name: "Women's Fashion",
-        link: "/womens-fashion",
+        link: "/category/1",
         subcategories: [
-            { name: "Dresses", link: "/womens-fashion/dresses" },
-            { name: "Tops", link: "/womens-fashion/tops" },
-            { name: "Shoes", link: "/womens-fashion/shoes" },
-            { name: "Accessories", link: "/womens-fashion/accessories" }
+            { name: "Dresses", img: slider1, link: "/category/1/dresses" },
+            { name: "Tops", img: slider1, link: "/category/1/tops" },
+            { name: "Shoes", img: slider1, link: "/category/1/shoes" },
+            { name: "Accessories", img: slider1, link: "/category/1/accessories" }
         ]
     },
     {
         id: 2,
         img: gamming,
         name: "Men's Fashion",
-        link: "/mens-fashion",
+        link: "/category/2",
         subcategories: [
-            { name: "Shirts", link: "/mens-fashion/shirts" },
-            { name: "Pants", link: "/mens-fashion/pants" },
-            { name: "Shoes", link: "/mens-fashion/shoes" },
-            { name: "Watches", link: "/mens-fashion/watches" }
+            { name: "Shirts", img: slider1, link: "/category/2/shirts" },
+            { name: "Pants", img: slider1, link: "/category/2/pants" },
+            { name: "Shoes", img: slider1, link: "/category/2/shoes" },
+            { name: "Watches", img: slider1, link: "/category/2/watches" }
         ]
     },
     {
         id: 3,
         img: gamming,
         name: "Electronics",
-        link: "/electronics",
+        link: "/category/3",
         subcategories: [
-            { name: "Smartphones", link: "/electronics/smartphones" },
-            { name: "Laptops", link: "/electronics/laptops" },
-            { name: "Gaming Accessories", link: "/electronics/gaming-accessories" },
-            { name: "Cameras", link: "/electronics/cameras" }
+            { name: "Smartphones", img: slider1, link: "/category/3/smartphones" },
+            { name: "Laptops", img: slider1, link: "/category/3/laptops" },
+            { name: "Gaming Accessories", img: slider1, link: "/category/3/gaming-accessories" },
+            { name: "Cameras", img: slider1, link: "/category/3/cameras" }
         ]
     },
     {
         id: 4,
         img: gamming,
         name: "Home & Lifestyle",
-        link: "/home-lifestyle",
+        link: "/category/4",
         subcategories: [
-            { name: "Furniture", link: "/home-lifestyle/furniture" },
-            { name: "Decor", link: "/home-lifestyle/decor" },
-            { name: "Kitchen Appliances", link: "/home-lifestyle/kitchen-appliances" }
+            { name: "Furniture", img: slider1, link: "/category/4/furniture" },
+            { name: "Decor", img: slider1, link: "/category/4/decor" },
+            { name: "Kitchen Appliances", img: slider1, link: "/category/4/kitchen-appliances" }
         ]
     },
     {
         id: 5,
         img: gamming,
         name: "Medicine",
-        link: "/medicine",
+        link: "/category/5",
         subcategories: [
-            { name: "Prescription Drugs", link: "/medicine/prescription-drugs" },
-            { name: "Supplements", link: "/medicine/supplements" },
-            { name: "Medical Equipment", link: "/medicine/medical-equipment" }
+            { name: "Prescription Drugs", img: slider1, link: "/category/5/prescription-drugs" },
+            { name: "Supplements", img: slider1, link: "/category/5/supplements" },
+            { name: "Medical Equipment", img: slider1, link: "/category/5/medical-equipment" }
         ]
     },
     {
-        id: 4,
+        id: 6,
         img: gamming,
         name: "Sports & Fitness",
-        link: "/sports-fitness",
+        link: "/category/6",
         subcategories: [
-            { name: "Fitness Equipment", link: "/sports-fitness/fitness-equipment" },
-            { name: "Athletic Wear", link: "/sports-fitness/athletic-wear" },
-            { name: "Outdoor Gear", link: "/sports-fitness/outdoor-gear" }
+            { name: "Fitness Equipment", img: slider1, link: "/category/6/fitness-equipment" },
+            { name: "Athletic Wear", img: slider1, link: "/category/6/athletic-wear" },
+            { name: "Outdoor Gear", img: slider1, link: "/category/6/outdoor-gear" }
         ]
     },
     {
         id: 7,
         img: gamming,
         name: "Toys & Games",
-        link: "/toys-games",
+        link: "/category/7",
         subcategories: [
-            { name: "Action Figures", link: "/toys-games/action-figures" },
-            { name: "Board Games", link: "/toys-games/board-games" }
+            { name: "Action Figures", img: slider1, link: "/category/7/action-figures" },
+            { name: "Board Games", img: slider1, link: "/category/7/board-games" }
         ]
     },
 ];
@@ -88,71 +89,75 @@ export const moreCategories = [
         id: 8,
         img: gamming,
         name: "Beauty & Personal Care",
-        link: "/beauty-personal-care",
+        link: "/category/8",
         subcategories: [
-            { name: "Makeup", link: "/beauty-personal-care/makeup" },
-            { name: "Skincare", link: "/beauty-personal-care/skincare" }
+            { name: "Makeup", img: slider1, link: "/category/8/makeup" },
+            { name: "Skincare", img: slider1, link: "/category/8/skincare" }
         ]
     },
     {
         id: 9,
         img: gamming,
         name: "Automotive",
-        link: "/automotive",
+        link: "/category/9",
         subcategories: [
-            { name: "Car Accessories", link: "/automotive/car-accessories" },
-            { name: "Motorcycle Gear", link: "/automotive/motorcycle-gear" }
+            { name: "Car Accessories", img: slider1, link: "/category/9/car-accessories" },
+            { name: "Motorcycle Gear", img: slider1, link: "/category/9/motorcycle-gear" }
         ]
     },
     {
         id: 10,
         img: gamming,
         name: "Grocery & Essentials",
-        link: "/grocery-essentials",
+        link: "/category/10",
         subcategories: [
-            { name: "Fresh Produce", link: "/grocery-essentials/fresh-produce" },
-            { name: "Beverages", link: "/grocery-essentials/beverages" }
+            { name: "Fresh Produce", img: slider1, link: "/category/10/fresh-produce" },
+            { name: "Beverages", img: slider1, link: "/category/10/beverages" }
         ]
     },
     {
         id: 11,
         img: gamming,
         name: "Books & Stationery",
-        link: "/books-stationery",
+        link: "/category/11",
         subcategories: [
-            { name: "Fiction", link: "/books-stationery/fiction" },
-            { name: "Non-Fiction", link: "/books-stationery/non-fiction" }
+            { name: "Fiction", img: slider1, link: "/category/11/fiction" },
+            { name: "Non-Fiction", img: slider1, link: "/category/11/non-fiction" }
         ]
     },
     {
         id: 12,
         img: gamming,
         name: "Baby & Kids",
-        link: "/baby-kids",
+        link: "/category/12",
         subcategories: [
-            { name: "Baby Clothing", link: "/baby-kids/baby-clothing" },
-            { name: "Toys", link: "/baby-kids/toys" }
+            { name: "Baby Clothing", img: slider1, link: "/category/12/baby-clothing" },
+            { name: "Toys", img: slider1, link: "/category/12/toys" }
         ]
     },
     {
         id: 13,
         img: gamming,
         name: "Pet Supplies",
-        link: "/pet-supplies",
+        link: "/category/13",
         subcategories: [
-            { name: "Pet Food", link: "/pet-supplies/pet-food" },
-            { name: "Pet Toys", link: "/pet-supplies/pet-toys" }
+            { name: "Pet Food", img: slider1, link: "/category/13/pet-food" },
+            { name: "Pet Toys", img: slider1, link: "/category/13/pet-toys" }
         ]
     },
     {
         id: 14,
         img: gamming,
         name: "Office & School Supplies",
-        link: "/office-school-supplies",
+        link: "/category/14",
         subcategories: [
-            { name: "Notebooks", link: "/office-school-supplies/notebooks" },
-            { name: "Pens & Markers", link: "/office-school-supplies/pens-markers" }
+            { name: "Notebooks", img: slider1, link: "/category/14/notebooks" },
+            { name: "Pens & Markers", img: slider1, link: "/category/14/pens-markers" }
         ]
     }
 ]
 
+export const getCategoryById = (categories, id) => {
+    const parsedId = parseInt(id, 10);
+    return categories.find(category => category.id === parsedId) || null;
+};
