@@ -16,7 +16,7 @@ const Account = () => {
 				</div>
 			</div>
 			<div className="container flex flex-col gap-10 lg:gap-0 lg:flex-row justify-between h-auto mb-10 ">
-				<div className="h-full w-full lg:w-[35%] p-10 shadow-sm">
+				<div className="h-full w-full lg:w-[35%] px-3 py-6 shadow-sm">
 					<div>
 						<h1 className="font-semibold">Manage My Account</h1>
 						<div className="mx-6 my-2 text-gray-500">
@@ -36,7 +36,7 @@ const Account = () => {
 						<h1 className="font-semibold">My Wishlist</h1>
 					</div>
 				</div>
-				<div className="w-full lg:w-[60%] h-full rounded-md p-10 shadow-sm">
+				<div className="w-full lg:w-[60%] h-full rounded-md px-3 py-6 shadow-sm">
 					<h1 className="mb-5 text-red-500 font-semibold">Edit Your Profile</h1>
 
 					<div className="flex w-full flex-wrap gap-4">
