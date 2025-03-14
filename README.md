@@ -27,3 +27,7 @@ This will include the pages design for the entire website
 # ./views/layout
 
 This icludes all the layout design of certain pages, this helps avoid repetition of component rendering for consistence in design pattern and codes beuty
+
+# deployment cammand on netlify
+
+CI=false npm run build

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Categories from '../../components/categories/Categories';
 import Slider from '../../components/slider/Slider';
-import BlockCategory from '../../components/categories/block';
+import BlockCategory from '../../components/categories/Block';
 import New from '../../components/new/New';
 import Service from '../../components/service/Service';
 import { services } from '../../../model/services/services';
