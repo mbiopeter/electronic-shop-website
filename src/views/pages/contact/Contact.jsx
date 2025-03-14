@@ -39,30 +39,31 @@ const Contact = () => {
 						</div>
 					</div>
 				</div>
-				<div className="textbox shadow-sm p-5 flex-row w-full lg:w-[45%] ">
-					<div className="details flex flex-row sm:flex-col  justify-between">
+
+				<div className=" textbox shadow-sm p-5 flex-row w-full lg:w-[45%] ">
+					<div className="details flex flex-col sm:flex-row justify-between">
 						<input
 							type="text"
-							className="bg-gray-200 md:w-full sm:w-full outline-0 px-8 py-4 m-1.5 rounded-md "
+							className="bg-gray-200 w-full outline-0 p-4 m-1.5 rounded-md "
 							placeholder="Your Name*"
 							required
 						/>
 						<input
 							type="email"
-							className="bg-gray-200 md:w-full sm:w-full outline-0 px-8 py-4 m-1.5 rounded-md "
+							className="bg-gray-200 w-full outline-0 p-4 m-1.5 rounded-md "
 							placeholder="Your Email*"
 							required
 						/>
 						<input
 							type="text"
-							className="bg-gray-200 md:w-full sm:w-full outline-0 px-8 py-4 m-1.5 sm:m-0.5 rounded-md "
+							className="bg-gray-200 w-full outline-0 p-4 m-1.5 sm:m-0.5 rounded-md "
 							placeholder="Your Phone number*"
 							required
 						/>
 					</div>
 					<div className="textbox">
 						<textarea
-							className=" md:w-full sm:w-full bg-gray-200 outline-0 p-2 m-1.5 rounded-md"
+							className=" w-full  bg-gray-200 outline-0 p-2 m-1.5 rounded-md"
 							placeholder="Your message"
 							cols="100"
 							rows="10"></textarea>
