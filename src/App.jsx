@@ -20,6 +20,7 @@ import Product from "./views/pages/product/Product";
 import Error404 from "./views/pages/error/Error404";
 import Category from "./views/pages/category/Category";
 import SubCategory from "./views/subCategory/SubCategory";
+import { wishList } from "./model/products/products";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -48,8 +49,8 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/abaut" element={<Abaut />} />
             <Route path="/wishlist" element={<WishList />} />
-			<Route path="/contact" element={<Contact />} />
-			<Route path="/account" element={<Account />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/account" element={<Account />} />
             <Route path="/billing" element={<Billing />} />
             <Route path="/product/:productId" element={<Product />} />
             <Route path="/category/:categoryId" element={<Category />} />

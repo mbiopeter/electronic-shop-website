@@ -472,82 +472,6 @@ export const wishList = [
 			size: ["Small", "Medium", "Large"]
 		},
 		images: [product1, product2, product3, product4, product5]
-	},
-	{
-		id: 2,
-		name: "My Product2",
-		description: "A durable and stylish product perfect for everyday use.",
-		category: "Fashion",
-		subcategory: "Shoes",
-		brand: "Brand B",
-		price: 140,
-		offerPrice: 180,
-		amountLeft: 5,
-		salesCount: 95,
-		ratings: 4,
-		ratingsCount: 180,
-		variantType: {
-			color: ["White", "Brown"],
-			size: ["7", "8", "9", "10"]
-		},
-		images: [product2, product3, product4, product5, product1]
-	},
-	{
-		id: 3,
-		name: "My Product3",
-		description: "A reliable and affordable option with great features.",
-		category: "Home & Lifestyle",
-		subcategory: "Kitchen Appliances",
-		brand: "Brand C",
-		price: 139,
-		offerPrice: 164,
-		amountLeft: 15,
-		salesCount: 75,
-		ratings: 3,
-		ratingsCount: 150,
-		variantType: {
-			color: ["Silver", "Black"],
-			size: ["Standard"]
-		},
-		images: [product3, product4, product5, product1, product2]
-	},
-	{
-		id: 4,
-		name: "My Product4",
-		description: "An elegant and versatile product for all occasions.",
-		category: "Accessories",
-		subcategory: "Watches",
-		brand: "Brand D",
-		price: 122,
-		offerPrice: 156,
-		amountLeft: 8,
-		salesCount: 88,
-		ratings: 5,
-		ratingsCount: 300,
-		variantType: {
-			color: ["Gold", "Silver"],
-			size: ["One Size"]
-		},
-		images: [product4, product5, product1, product2, product3]
-	},
-	{
-		id: 4,
-		name: "My Product4",
-		description: "An elegant and versatile product for all occasions.",
-		category: "Accessories",
-		subcategory: "Watches",
-		brand: "Brand D",
-		price: 122,
-		offerPrice: 156,
-		amountLeft: 8,
-		salesCount: 88,
-		ratings: 5,
-		ratingsCount: 300,
-		variantType: {
-			color: ["Gold", "Silver"],
-			size: ["One Size"]
-		},
-		images: [product4, product5, product1, product2, product3]
 	}
 ];
 
@@ -644,3 +568,8 @@ export const getProductByCategory = (products, category) => {
 export const getProductBySubCategory = (products, subCategory) => {
 	return products.filter(product => product.subcategory?.toLowerCase() === subCategory.toLowerCase()) || [];
 };
+
+export const isProductLiked = (products, id) => {
+	const parsedId = parseInt(id, 10);
+	return products.some(product => product.id === parsedId);
+};;

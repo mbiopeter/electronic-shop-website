@@ -109,9 +109,6 @@ const UpBar = () => {
 					<Link to={"/wishlist"}>
 						<div className="relative">
 							<FavoriteBorderIcon className="text-gray-500 cursor-pointer" />
-							<div className="absolute bg-[#DB4444] w-[17px] h-[17px] p-[1px] -top-1 -right-1 rounded-full flex items-center justify-center text-[9px] text-[#FAFAFA] font-[400]">
-								{liked}
-							</div>
 						</div>
 					</Link>
 					<Link to={"/cart"}>

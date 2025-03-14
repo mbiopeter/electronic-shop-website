@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { Rating } from "primereact/rating";
-import pad from '../../../assets/images/pad.png';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import delivery from '../../../assets/images/delivery.png';
 import reload from '../../../assets/images/reload.png';
 import SubHeading from '../../components/subheading/Subheading';
 import Products from '../../components/products/Products';
-import { allProducts, explore, getProductById } from '../../../model/products/products';
+import { allProducts, explore, getProductById, isProductLiked, wishList } from '../../../model/products/products';
 import { useParams } from 'react-router-dom';
 
-const productImages = [pad, pad, pad, pad];
 const colors = ['#00FF66', '#e6a925', '#DB4444'];
 const sizes = ['XS', 'S', 'M', 'L', 'XL'];
 
@@ -17,12 +16,24 @@ const Product = () => {
     const [selectedColor, setSelectedColor] = useState(colors[0]);
     const [selectedSize, setSelectedSize] = useState(sizes[0]);
     const [mainImage, setMainImage] = useState(null);
+
     const {productId} = useParams();
+    const product = getProductById(allProducts,productId);
+
+    const [liked, setLiked] = useState(isProductLiked(wishList, productId));
+    const toggleLike = () => {
+        setLiked(!liked);
+        if (liked) {
+            wishList.pop(product);
+        } else {
+        wishList.push(product);
+        }
+    };
+
+    
 
     const increment = () => setQuantity(quantity + 1);
     const decrement = () => quantity > 1 && setQuantity(quantity - 1);
-
-    const product = getProductById(allProducts,productId);
 
     React.useEffect(() => {
         setMainImage(product.images[0]);
@@ -114,7 +125,11 @@ const Product = () => {
                         </div>
                         <button className='bg-red-500 py-2 px-7 text-white rounded-sm'>Add To Cart</button>
                         <div className='p-2 border rounded-sm w-10 h-10 flex items-center justify-center'>
-                            <i className="pi pi-heart"></i>
+                            <FavoriteIcon
+                                fontSize="small"
+                                onClick={toggleLike} 
+                                className={`${liked ? 'text-[#DB4444]' : 'text-gray-500'} cursor-pointer`}
+                            />
                         </div>
                     </div>
 
