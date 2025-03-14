@@ -14,8 +14,12 @@ import Cart from "./views/pages/cart/Cart";
 import Abaut from "./views/pages/abaut/Abaut";
 import Account from "./views/pages/account/Account";
 import Contact from "./views/pages/contact/Contact";
+import WishList from "./views/pages/wishList/WishList";
+import Billing from "./views/pages/billing/Billing";
+import Product from "./views/pages/product/Product";
+import Error404 from "./views/pages/error/Error404";
 
-const NotFound = () => <h2>404 - Page Not Found</h2>;
+const NotFound = () => <Error404 />;
 
 function App() {
 	return (
@@ -32,6 +36,9 @@ function App() {
 						<Route path="/abaut" element={<Abaut />} />
 						<Route path="/contact" element={<Contact />} />
 						<Route path="/account" element={<Account />} />
+						<Route path="/wishlist" element={<WishList />} />
+						<Route path="/billing" element={<Billing />} />
+						<Route path="/product/:productId" element={<Product />} />
 						<Route path="*" element={<NotFound />} />
 					</Routes>
 					{/* footer */}

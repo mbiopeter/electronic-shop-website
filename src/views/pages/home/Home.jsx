@@ -2,18 +2,20 @@ import React, { useState } from 'react'
 import Categories from '../../components/categories/Categories';
 import Slider from '../../components/slider/Slider';
 import BlockCategory from '../../components/categories/block';
-import { moreCategories } from '../../../model/categories/data';
 import New from '../../components/new/New';
 import Service from '../../components/service/Service';
 import { services } from '../../../model/services/services';
 import SubHeading from '../../components/subheading/Subheading';
-import { bestSellings, explore, products } from '../../../model/products/products';
 import Products from '../../components/products/Products';
 import Button from '../../components/button/Button';
 import Banner from '../../components/Banner/Banner';
+import { bestSellings, explore, scrollList } from '../../../model/products/products';
+import { moreCategories } from '../../../model/categories/category';
 
 const Home = () => {
     const [activeCategory, setActiveCategory] = useState('Camera');
+
+
     return (
         <div className=' w-full flex  flex-col py-[20px] px-[50px] lg:px-[130px]'>
             <div className='flex flex-col gap-[20px] lg:flex-row justify-between'>
@@ -24,7 +26,7 @@ const Home = () => {
                 <SubHeading heading="Today's" title={'Flash Sales'} timer={true}/>
             </div>
             <div className='flex flex-row pb-10 gap-5 flex-nowrap justify-start items-center overflow-auto'>
-                {products.map((item,index) => (
+                {scrollList.map((item,index) => (
                     <Products item={item} key={index}/>
                 ))}
             </div>
