@@ -7,13 +7,13 @@ const Contact = () => {
 	// ];
 
 	return (
-		<div className="overflow-x-hidden ">
-			<div className="flex flex-row m-6 ml-[9rem] md:ml-[8rem]  gap-1.5 sm:ml-[2rem]">
+		<div className="w-full flex  flex-col py-[20px] px-[50px] lg:px-[130px]">
+			<div className="flex flex-row my-6   gap-1.5">
 				<span className="font-semibold text-gray-500">Home</span>/
 				<span className="font-semibold">Contact</span>
 			</div>
-			<div className="section flex flex-row  justify-between mx-[3rem] mb-10 sm:justify-center  m-auto ">
-				<div className="contacts ml-[7rem] md:ml-[4rem]">
+			<div className="w-full flex flex-col gap-10 lg:gap-0 lg:flex-row  justify-between mb-10  m-auto ">
+				<div className="contacts shadow-sm p-5 w-full lg:w-[45%]">
 					<div className="call">
 						<div className="header">
 							<p className="flex">
@@ -39,7 +39,7 @@ const Contact = () => {
 						</div>
 					</div>
 				</div>
-				<div className="textbox mx-[3rem] flex-row ">
+				<div className="textbox shadow-sm p-5 flex-row w-full lg:w-[45%] ">
 					<div className="details flex flex-row sm:flex-col  justify-between">
 						<input
 							type="text"

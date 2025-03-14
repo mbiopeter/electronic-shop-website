@@ -109,48 +109,6 @@ const UpBar = () => {
 						/>
 						<SearchIcon className="text-gray-500" />
 					</div>
-					<Link to={"/wishlist"}>
-						<div className="relative">
-							<FavoriteBorderIcon className="text-gray-500 cursor-pointer" />
-							<div className="absolute bg-[#DB4444] w-[17px] h-[17px] p-[1px] -top-1 -right-1 rounded-full flex items-center justify-center text-[9px] text-[#FAFAFA] font-[400]">
-								{liked}
-							</div>
-						</div>
-					</Link>
-					<Link to={"/cart"}>
-						<div className="relative">
-							<ShoppingCartOutlinedIcon className="text-gray-500 cursor-pointer" />
-							<div className="absolute bg-[#DB4444] w-[17px] h-[17px] p-[1px] -top-1 -right-1 rounded-full flex items-center justify-center text-[9px] text-[#FAFAFA] font-[400]">
-								2
-							</div>
-						</div>
-					</Link>
-					<div
-						className="bg-[#DB4444] rounded-full flex items-center justify-center p-1 cursor-pointer"
-						onClick={() => {
-							setDropdownVisible(!dropdownVisible);
-							setIsOpen(false);
-						}}>
-						<PersonOutlinedIcon fontSize="small" className="text-[#FAFAFA]" />
-					</div>
-					<div
-						className="lg:hidden"
-						onClick={() => {
-							setIsOpen(true);
-							setDropdownVisible(false);
-						}}>
-						<MenuOutlinedIcon className="text-black cursor-pointer" />
-					</div>
-				</div>
-				<div className="flex items-center gap-6">
-					<div className="hidden lg:flex items-center border border-gray-300 rounded-full px-4 py-2 shadow-sm">
-						<input
-							type="text"
-							placeholder="Search anything..."
-							className="border-none outline-none text-sm text-black w-36"
-						/>
-						<SearchIcon className="text-gray-500" />
-					</div>
 					<FavoriteBorderIcon className="text-gray-500 cursor-pointer" />
 					<Link to={"/cart"}>
 						<div className="relative">

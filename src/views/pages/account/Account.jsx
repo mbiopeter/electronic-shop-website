@@ -2,8 +2,8 @@ import React from "react";
 
 const Account = () => {
 	return (
-		<div className="overflow-x-hidden">
-			<div className="flex flex-row m-12 mx-[9rem] md:ml-[8rem] justify-between gap-1.5 sm:mx-[2rem]">
+		<div className="w-full flex h-auto flex-col py-[20px] px-[50px] lg:px-[130px]">
+			<div className="flex flex-row m-12 justify-between gap-1.5">
 				<div>
 					<span className="font-semibold text-gray-500">Home</span>/{"  "}
 					<span className="font-semibold">My Account</span>
@@ -15,8 +15,8 @@ const Account = () => {
 					</span>
 				</div>
 			</div>
-			<div className="container grid grid-flow-col   m-auto mb-10 ">
-				<div className="left h-[24rem] w-[22rem] ml-[10em] md:-left-79">
+			<div className="container flex flex-row justify-between h-auto mb-10 ">
+				<div className="h-full w-[35%] p-10 shadow-sm">
 					<div>
 						<h1 className="font-semibold">Manage My Account</h1>
 						<div className="mx-6 my-2 text-gray-500">
@@ -36,7 +36,7 @@ const Account = () => {
 						<h1 className="font-semibold">My Wishlist</h1>
 					</div>
 				</div>
-				<div className="w-[43rem]  rounded-lg shadow-sm">
+				<div className="w-[60%] h-full rounded-md p-10 shadow-sm">
 					<h1 className="mb-5 text-red-500 font-semibold">Edit Your Profile</h1>
 
 					<div className="grid grid-cols-2 gap-4">
