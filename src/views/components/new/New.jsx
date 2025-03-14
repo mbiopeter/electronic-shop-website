@@ -6,7 +6,7 @@ import minor2Img from '../../../assets/images/new-arival-minor-2.png';
 
 const NewArrivals = () => {
     return (
-        <div className='w-full h-auto grid grid-cols-1 md:grid-cols-2 gap-4 px-4'>
+        <div className='w-full h-auto mb-50 lg:mb-0 grid grid-cols-1 md:grid-cols-2 gap-4 px-4'>
             {/* Large Image */}
             <div className='relative bg-[#000000] h-[400px] sm:h-[450px] md:h-[500px] flex items-center justify-center'>
                 <img src={mainImg} alt='PlayStation 5' className='h-full object-cover rounded-lg' />
