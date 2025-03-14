@@ -8,7 +8,7 @@ import { services } from '../../../model/services/services';
 import SubHeading from '../../components/subheading/Subheading';
 import Products from '../../components/products/Products';
 import Button from '../../components/button/Button';
-import Banner from '../../components/Banner/Banner';
+import Banner from '../../components/banner/Banner';
 import { bestSellings, explore, scrollList } from '../../../model/products/products';
 import { moreCategories } from '../../../model/categories/category';
 
