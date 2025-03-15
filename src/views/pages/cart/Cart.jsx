@@ -100,36 +100,38 @@ const Cart = ({items, setItems}) => {
                 )}
             </div>
 
-            <div className='w-full mt-15 flex items-start gap-5 lg:gap-0 flex-col overflow-auto lg:flex-row justify-between'>
-                <div className='w-[100%] lg:w-[50%] flex flex-row gap-5 justify-between items-center'>
-                    <input
-                        type="text"
-                        placeholder='Coupon Code'
-                        className="w-[60%] p-2 items-center rounded-sm outline-none font-[400] border-[1px] border-[#000000]"/>
-                    <button className="p-2 w-[65%] text-[#FAFAFA]  text-nowrap border-[1px] border-[#ddd]  cursor-pointer bg-[#DB4444] rounded-sm font-[400]">
-                        Apply Coupon
-                    </button>
-                </div>
+            {items.length >= 1 && (
+                <div className='w-full mt-15 flex items-start gap-5 lg:gap-0 flex-col overflow-auto lg:flex-row justify-between'>
+                    <div className='w-[100%] lg:w-[50%] flex flex-row gap-5 justify-between items-center'>
+                        <input
+                            type="text"
+                            placeholder='Coupon Code'
+                            className="w-[60%] p-2 items-center rounded-sm outline-none font-[400] border-[1px] border-[#000000]"/>
+                        <button className="p-2 w-[65%] text-[#FAFAFA]  text-nowrap border-[1px] border-[#ddd]  cursor-pointer bg-[#DB4444] rounded-sm font-[400]">
+                            Apply Coupon
+                        </button>
+                    </div>
 
-                <div className='w-[100%] lg:w-[45%] rounded-sm border-[1px] flex-col border-[#000000] p-5'>
-                    <span className='text-[20px] text-[#000000] font-[500]'>Cart Total</span>
-                    <div className='flex flex-row justify-between items-center mt-7 border-b-[#ddd] border-b-[2px] py-2'>
-                        <span className='text-[16px] text-[#000000] font-[400]'>Subtotal:</span>
-                        <span className='text-[16px] text-[#000000] font-[400]'>${total}</span>
+                    <div className='w-[100%] lg:w-[45%] rounded-sm border-[1px] flex-col border-[#000000] p-5'>
+                        <span className='text-[20px] text-[#000000] font-[500]'>Cart Total</span>
+                        <div className='flex flex-row justify-between items-center mt-7 border-b-[#ddd] border-b-[2px] py-2'>
+                            <span className='text-[16px] text-[#000000] font-[400]'>Subtotal:</span>
+                            <span className='text-[16px] text-[#000000] font-[400]'>${total}</span>
+                        </div>
+                        <div className='flex flex-row justify-between items-center mt-7 border-b-[#ddd] border-b-[2px] py-2'>
+                            <span className='text-[16px] text-[#000000] font-[400]'>Shipping:</span>
+                            <span className='text-[16px] text-[#000000] font-[400]'>{shipping === 0 ? 'Free' : shipping}</span>
+                        </div>
+                        <div className='flex flex-row justify-between items-center mt-7 py-2'>
+                            <span className='text-[16px] text-[#000000] font-[400]'>Total:</span>
+                            <span className='text-[16px] text-[#000000] font-[400]'>${total + shipping}</span>
+                        </div>
+                        <button className="p-2 border-[1px] bg-[#DB4444] mt-5 w-full text-[#FAFAFA] border-[#ddd] cursor-pointer rounded-sm font-[400]">
+                            Place Order
+                        </button>
                     </div>
-                    <div className='flex flex-row justify-between items-center mt-7 border-b-[#ddd] border-b-[2px] py-2'>
-                        <span className='text-[16px] text-[#000000] font-[400]'>Shipping:</span>
-                        <span className='text-[16px] text-[#000000] font-[400]'>{shipping === 0 ? 'Free' : shipping}</span>
-                    </div>
-                    <div className='flex flex-row justify-between items-center mt-7 py-2'>
-                        <span className='text-[16px] text-[#000000] font-[400]'>Total:</span>
-                        <span className='text-[16px] text-[#000000] font-[400]'>${total + shipping}</span>
-                    </div>
-                    <button className="p-2 border-[1px] bg-[#DB4444] mt-5 w-full text-[#FAFAFA] border-[#ddd] cursor-pointer rounded-sm font-[400]">
-                        Place Order
-                    </button>
                 </div>
-            </div>
+            )}
         </div>
     );
 };
