@@ -16,7 +16,7 @@ const Slider = () => {
                 autoplay={{ delay: 3000, disableOnInteraction: false }}
                 className="overflow-hidden">
                 {slides.map((slide) => (
-                    <SwiperSlide key={slide.id} className="relative bg-black">
+                    <SwiperSlide key={slide.id} className="relative py-10 bg-black">
                         <div className="relative flex justify-end">
                             <div className="absolute inset-0 bg-black opacity-40"></div>
                             <div className="absolute top-1/2 left-10 transform -translate-y-1/2 text-white">
@@ -26,7 +26,7 @@ const Slider = () => {
                                     {slide.buttonText} →
                                 </button>
                             </div>
-                            <img src={slide.image} className="w-auto h-[200px] m-10 mr-40 object-cover" />
+                            <img src={slide.image} className="w-auto h-[70px] md:h-[200px] m-10 mr-5 md:mg-40 object-cover" />
                         </div>
                     </SwiperSlide>
                 ))}
