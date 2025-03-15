@@ -1,27 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import img from '../../../assets/images/slider1.png';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { Link } from 'react-router-dom';
+import { tr } from 'date-fns/locale';
 
-const cartItems = [
-    {
-        id: 1,
-        product: 'Game Pad',
-        price: 850,
-        quantity: 1,
-    },
-    {
-        id: 2,
-        product: 'Game Controller',
-        price: 900,
-        quantity: 2,
-    },
-];
-
-const Cart = () => {
-    const [items, setItems] = useState(cartItems);
+const Cart = ({items, setItems}) => {
     const [total, setTotal] = useState(0);
     const [shipping, setShipping] = useState(0);
 
-    // Recalculate total whenever the cart items change
     useEffect(() => {
         const totalPrice = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
         setTotal(totalPrice);
@@ -32,6 +18,18 @@ const Cart = () => {
             item.id === id ? { ...item, quantity: parseInt(quantity, 10) } : item
         );
         setItems(updatedItems);
+    };
+
+    const handleDeleteItem = (itemToDelete) => {
+        const updatedItems = items.map(item => 
+            item.id === itemToDelete.id ? { ...item, fadeOut: true } : item
+        );
+        setItems(updatedItems);
+
+        setTimeout(() => {
+            const newItems = items.filter(item => item.id !== itemToDelete.id);
+            setItems(newItems);
+        }, 600);
     };
 
     return (
@@ -51,11 +49,14 @@ const Cart = () => {
                             <td>Price</td>
                             <td>Quantity</td>
                             <td>Subtotal</td>
+                            <td>Action</td>
                         </tr>
                     </thead>
                     <tbody>
                         {items.map(item => (
-                            <tr key={item.id}>
+                            <tr
+                                key={item.id}
+                                className={`transition-opacity duration-300 ${item.fadeOut ? 'opacity-0' : 'opacity-100'}`}>
                                 <td className="flex justify-start flex-row gap-5 items-center py-10 min-w-[200px]">
                                     <img src={img} className="object-cover h-[30px]" alt={item.product} />
                                     <span>{item.product}</span>
@@ -65,24 +66,38 @@ const Cart = () => {
                                     <input
                                         type="number"
                                         value={item.quantity}
+                                        min="1"
                                         onChange={(e) => handleQuantityChange(item.id, e.target.value)}
-                                        className="w-[50px] p-1 text-center items-center rounded-md outline-none border-[1px] border-[#666464]"
-                                    />
+                                        className="w-[50px] p-1 text-center items-center rounded-md outline-none border-[1px] border-[#666464]"/>
                                 </td>
                                 <td className=' min-w-[200px]'>${item.price * item.quantity}</td>
+                                <td className='flex justify-center'>
+                                    <DeleteIcon 
+                                        onClick={() => handleDeleteItem(item)} 
+                                        className='text-[#DB4444] cursor-pointer'/>
+                                </td>
                             </tr>
                         ))}
+                        {items.length === 0 && (
+                            <tr>
+                                <td className='py-2 flex' colSpan={5}>No items in the cart</td>
+                            </tr>
+                        )}
                     </tbody>
                 </table>
             </div>
 
             <div className="w-full flex flex-row justify-between mt-5">
-                <button className="p-2 border-[1px] border-[#ddd] cursor-pointer rounded-sm font-[400]">
-                    Return to Shop
-                </button>
-                <button className="p-2 border-[1px] border-[#ddd] cursor-pointer rounded-sm font-[400]">
-                    Update Cart
-                </button>
+                <Link to={'/'}>
+                    <button className="p-2 border-[1px] border-[#ddd] cursor-pointer rounded-sm font-[400]">
+                        Return to Shop
+                    </button>
+                </Link>
+                {items.length >= 1 && (
+                    <button className="p-2 border-[1px] border-[#ddd] cursor-pointer rounded-sm font-[400]">
+                        Update Cart
+                    </button>
+                )}
             </div>
 
             <div className='w-full mt-15 flex items-start gap-5 lg:gap-0 flex-col overflow-auto lg:flex-row justify-between'>
@@ -90,8 +105,7 @@ const Cart = () => {
                     <input
                         type="text"
                         placeholder='Coupon Code'
-                        className="w-[60%] p-2 items-center rounded-sm outline-none font-[400] border-[1px] border-[#000000]"
-                    />
+                        className="w-[60%] p-2 items-center rounded-sm outline-none font-[400] border-[1px] border-[#000000]"/>
                     <button className="p-2 w-[65%] text-[#FAFAFA]  text-nowrap border-[1px] border-[#ddd]  cursor-pointer bg-[#DB4444] rounded-sm font-[400]">
                         Apply Coupon
                     </button>
@@ -112,7 +126,7 @@ const Cart = () => {
                         <span className='text-[16px] text-[#000000] font-[400]'>${total + shipping}</span>
                     </div>
                     <button className="p-2 border-[1px] bg-[#DB4444] mt-5 w-full text-[#FAFAFA] border-[#ddd] cursor-pointer rounded-sm font-[400]">
-                        Update Cart
+                        Place Order
                     </button>
                 </div>
             </div>

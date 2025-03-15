@@ -16,7 +16,8 @@ import PreviewIcon from "@mui/icons-material/Preview";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { wishList } from "../../../model/products/products";
 
-const UpBar = () => {
+const UpBar = ({cartItems}) => {
+	const cartItemsCount = cartItems.length;
 	const [active, setActive] = useState("Home");
 	const [isOpen, setIsOpen] = useState(false);
 	const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -114,9 +115,9 @@ const UpBar = () => {
 					<Link to={"/cart"}>
 						<div className="relative">
 							<ShoppingCartOutlinedIcon className="text-gray-500 cursor-pointer" />
-							<div className="absolute bg-[#DB4444] w-[17px] h-[17px] p-[1px] -top-1 -right-1 rounded-full flex items-center justify-center text-[9px] text-[#FAFAFA] font-[400]">
-								2
-							</div>
+							{cartItemsCount > 0 &&<div className="absolute bg-[#DB4444] w-[17px] h-[17px] p-[1px] -top-1 -right-1 rounded-full flex items-center justify-center text-[9px] text-[#FAFAFA] font-[400]">
+								{cartItemsCount}
+							</div>}
 						</div>
 					</Link>
 					<div

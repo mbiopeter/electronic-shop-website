@@ -7,11 +7,12 @@ import SubHeading from '../../components/subheading/Subheading';
 import Products from '../../components/products/Products';
 import { allProducts, explore, getProductById, isProductLiked, wishList } from '../../../model/products/products';
 import { useParams } from 'react-router-dom';
+import { isOrderPlaced } from '../../../model/cart/cart';
 
 const colors = ['#00FF66', '#e6a925', '#DB4444'];
 const sizes = ['XS', 'S', 'M', 'L', 'XL'];
 
-const Product = () => {
+const Product = ({items, setItems}) => {
     const [quantity, setQuantity] = useState(1);
     const [selectedColor, setSelectedColor] = useState(colors[0]);
     const [selectedSize, setSelectedSize] = useState(sizes[0]);
@@ -45,6 +46,18 @@ const Product = () => {
         } else {
             setMainImage(image);
         }
+    };
+
+    const isOrdered = isOrderPlaced(items,productId)
+    const handleAddCart = (product) => {
+        const newItem = {
+            id: product.id,
+            product: product.name,
+            price: product.offerPrice,
+            quantity: quantity
+        };
+
+        setItems((prevItems) => [...prevItems, newItem]);
     };
 
     return (
@@ -123,7 +136,11 @@ const Product = () => {
                             <span className='w-12 text-lg font-medium flex items-center justify-center'>{quantity}</span>
                             <button className='w-10 text-lg font-bold bg-red-500 text-white' onClick={increment}>+</button>
                         </div>
-                        <button className='bg-red-500 py-2 px-7 text-white rounded-sm'>Add To Cart</button>
+                        <button
+                            onClick={!isOrdered ?() => handleAddCart(product): null}
+                            className={`${isOrdered ? 'bg-green-500 cursor-not-allowed' : 'bg-red-500 cursor-pointer'} py-2 px-7 text-white rounded-sm`}>
+                            {isOrdered ? 'Order Placed' : 'Add To Cart'}
+                        </button>
                         <div className='p-2 border rounded-sm w-10 h-10 flex items-center justify-center'>
                             <FavoriteIcon
                                 fontSize="small"

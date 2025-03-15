@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
 	BrowserRouter as Router,
 	Routes,
@@ -20,7 +20,7 @@ import Product from "./views/pages/product/Product";
 import Error404 from "./views/pages/error/Error404";
 import Category from "./views/pages/category/Category";
 import SubCategory from "./views/subCategory/SubCategory";
-import { wishList } from "./model/products/products";
+import { cartItems } from "./model/cart/cart";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -35,24 +35,25 @@ const ScrollToTop = () => {
 const NotFound = () => <Error404 />;
 
 function App() {
+  const [items, setItems] = useState(cartItems);
   return (
     <PrimeReactProvider>
       <Router>
         <ScrollToTop />
         <div>
           {/* upbar */}
-          <UpBar />
+          <UpBar cartItems={items}/>
           <Routes>
             {/* Pages routes */}
             <Route path="/" element={<Home />} />
             <Route path="/auth" element={<Authentication />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart" element={<Cart items={items} setItems={setItems} />} />
             <Route path="/abaut" element={<Abaut />} />
             <Route path="/wishlist" element={<WishList />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/account" element={<Account />} />
             <Route path="/billing" element={<Billing />} />
-            <Route path="/product/:productId" element={<Product />} />
+            <Route path="/product/:productId" element={<Product items={items} setItems={setItems} />} />
             <Route path="/category/:categoryId" element={<Category />} />
             <Route path="/category/:categoryId/:subcategory" element={<SubCategory />} />
             <Route path="*" element={<NotFound />} />
