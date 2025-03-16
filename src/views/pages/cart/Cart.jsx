@@ -126,9 +126,11 @@ const Cart = ({items, setItems}) => {
                             <span className='text-[16px] text-[#000000] font-[400]'>Total:</span>
                             <span className='text-[16px] text-[#000000] font-[400]'>${total + shipping}</span>
                         </div>
+                        <Link to="/orders">
                         <button className="p-2 border-[1px] bg-[#DB4444] mt-5 w-full text-[#FAFAFA] border-[#ddd] cursor-pointer rounded-sm font-[400]">
-                            Place Order
+                            Track Orders
                         </button>
+                        </Link>
                     </div>
                 </div>
             )}
