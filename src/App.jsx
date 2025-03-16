@@ -14,6 +14,7 @@ import Cart from "./views/pages/cart/Cart";
 import Abaut from "./views/pages/abaut/Abaut";
 import Account from "./views/pages/account/Account";
 import Contact from "./views/pages/contact/Contact";
+import Orders from "./views/pages/orders/Orders";
 import WishList from "./views/pages/wishList/WishList";
 import Billing from "./views/pages/billing/Billing";
 import Product from "./views/pages/product/Product";
@@ -25,50 +26,61 @@ import History from "./views/pages/history/History";
 import Cancellation from "./views/pages/cancellation/Cancellation";
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+	const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [pathname]);
+	useEffect(() => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	}, [pathname]);
 
-  return null;
+	return null;
 };
 
 const NotFound = () => <Error404 />;
 
 function App() {
-  const [items, setItems] = useState(cartItems);
+	const [items, setItems] = useState(cartItems);
 
-  return (
-    <PrimeReactProvider>
-      <Router>
-        <ScrollToTop />
-        <div>
-          {/* upbar */}
-          <UpBar cartItems={items}/>
-          <Routes>
-            {/* Pages routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/auth" element={<Authentication />} />
-            <Route path="/cart" element={<Cart items={items} setItems={setItems} />} />
-            <Route path="/abaut" element={<Abaut />} />
-            <Route path="/wishlist" element={<WishList />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/account" element={<Account />} />
-            <Route path="/history" element={<History />} />
-            <Route path="/cancellation" element={<Cancellation />} />
-            <Route path="/billing" element={<Billing billedItems={items}/>} />
-            <Route path="/product/:productId" element={<Product items={items} setItems={setItems} />} />
-            <Route path="/category/:categoryId" element={<Category />} />
-            <Route path="/category/:categoryId/:subcategory" element={<SubCategory />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          {/* footer */}
-          <Footer />
-        </div>
-      </Router>
-    </PrimeReactProvider>
-  );s
+	return (
+		<PrimeReactProvider>
+			<Router>
+				<ScrollToTop />
+				<div>
+					{/* upbar */}
+					<UpBar cartItems={items} />
+					<Routes>
+						{/* Pages routes */}
+						<Route path="/" element={<Home />} />
+						<Route path="/auth" element={<Authentication />} />
+						<Route
+							path="/cart"
+							element={<Cart items={items} setItems={setItems} />}
+						/>
+						<Route path="/abaut" element={<Abaut />} />
+						<Route path="/wishlist" element={<WishList />} />
+						<Route path="/contact" element={<Contact />} />
+						<Route path="/account" element={<Account />} />
+						<Route path="/orders" element={<Orders />} />
+						<Route path="/history" element={<History />} />
+						<Route path="/cancellation" element={<Cancellation />} />
+						<Route path="/billing" element={<Billing billedItems={items} />} />
+						<Route
+							path="/product/:productId"
+							element={<Product items={items} setItems={setItems} />}
+						/>
+						<Route path="/category/:categoryId" element={<Category />} />
+						<Route
+							path="/category/:categoryId/:subcategory"
+							element={<SubCategory />}
+						/>
+						<Route path="*" element={<NotFound />} />
+					</Routes>
+					{/* footer */}
+					<Footer />
+				</div>
+			</Router>
+		</PrimeReactProvider>
+	);
+	s;
 }
 
 export default App;

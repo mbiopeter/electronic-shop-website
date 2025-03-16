@@ -1,11 +1,6 @@
 import React from "react";
 
 const Contact = () => {
-	// const navLinks = [
-	// 	{ name: Home, to: "/" },
-	// 	{ name: Contact, to: "/contact" },
-	// ];
-
 	return (
 		<div className="w-full flex  flex-col py-[20px] px-[50px] lg:px-[130px]">
 			<div className="flex flex-row my-6   gap-1.5">

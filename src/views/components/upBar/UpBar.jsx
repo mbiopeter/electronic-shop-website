@@ -16,7 +16,7 @@ import PreviewIcon from "@mui/icons-material/Preview";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { wishList } from "../../../model/products/products";
 
-const UpBar = ({cartItems}) => {
+const UpBar = ({ cartItems }) => {
 	const cartItemsCount = cartItems.length;
 	const [active, setActive] = useState("Home");
 	const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +36,8 @@ const UpBar = ({cartItems}) => {
 			icon: <PersonIcon fontSize="small" className="text-[#FAFAFA]" />,
 		},
 		{
-			name: "My Order",
+			name: "Track My Orders",
+			to: "/orders",
 			icon: <LocalMallIcon fontSize="small" className="text-[#FAFAFA]" />,
 		},
 		{
@@ -82,9 +83,11 @@ const UpBar = ({cartItems}) => {
 			{/* Lower Bar */}
 			<div
 				className={`px-10 lg:px-36 relative flex justify-between h-20 shadow-lg items-center bg-white`}>
-				<span className="text-xl md:text-2xl font-bold text-black">
-					Exclusive
-				</span>
+				<Link to="/">
+					<span className="text-xl md:text-2xl font-bold text-black">
+						Exclusive
+					</span>
+				</Link>
 
 				<div className="hidden lg:flex gap-12">
 					{navLinks.map((item) => (
@@ -117,9 +120,11 @@ const UpBar = ({cartItems}) => {
 					<Link to={"/cart"}>
 						<div className="relative">
 							<ShoppingCartOutlinedIcon className="text-gray-500 cursor-pointer" />
-							{cartItemsCount > 0 &&<div className="absolute bg-[#DB4444] w-[17px] h-[17px] p-[1px] -top-1 -right-1 rounded-full flex items-center justify-center text-[9px] text-[#FAFAFA] font-[400]">
-								{cartItemsCount}
-							</div>}
+							{cartItemsCount > 0 && (
+								<div className="absolute bg-[#DB4444] w-[17px] h-[17px] p-[1px] -top-1 -right-1 rounded-full flex items-center justify-center text-[9px] text-[#FAFAFA] font-[400]">
+									{cartItemsCount}
+								</div>
+							)}
 						</div>
 					</Link>
 					<div

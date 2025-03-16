@@ -1,16 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Account = () => {
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [email, setEmail] = useState("");
+	const [address, setAddress] = useState("");
+	const [password, setPassword] = useState("");
+	const [confirmPassword, setConfirmPassword] = useState("");
+	console.log("Awaiting stuff: ");
+
+	useEffect(() => {
+		setFirstName(firstName);
+		setLastName(lastName);
+		setEmail(email);
+		setAddress(address);
+		setPassword(password);
+		setConfirmPassword(confirmPassword);
+		console.log(
+			firstName + lastName + email + address + password + confirmPassword
+		);
+	}, []);
+
+	function submitChanges(e) {
+		e.preventDefault();
+		console.log(
+			"Submits: ",
+			firstName + lastName + email + address + password + confirmPassword
+		);
+	}
+
 	return (
 		<div className="w-full flex h-auto flex-col py-[20px] px-[50px] lg:px-[130px]">
-			<div className="flex flex-row m-12 justify-between gap-1.5">
+			<div className="flex flex-row my-4 lg:m-12 justify-between gap-1.5">
 				<div>
 					<span className="font-semibold text-gray-500">Home</span>/{"  "}
 					<span className="font-semibold">My Account</span>
 				</div>
 				<div>
 					Welcome,{" "}
-					<span className="text-red-500 mr-[48px]  font-semibold">
+					<span className="text-red-500 lg:mr-[48px]  font-semibold">
 						Emmanuel
 					</span>
 				</div>
@@ -48,9 +76,11 @@ const Account = () => {
 							<input
 								type="text"
 								id="fname"
+								value={firstName}
 								className="bg-gray-200 p-3 rounded-md"
 								placeholder="Enter first name"
 								required
+								onChange={(e) => setFirstName(e.target.value)}
 							/>
 						</div>
 
@@ -62,9 +92,11 @@ const Account = () => {
 							<input
 								type="text"
 								id="lname"
+								value={lastName}
 								className="bg-gray-200 p-3 rounded-md"
 								placeholder="Enter last name"
 								required
+								onChange={(e) => setLastName(e.target.value)}
 							/>
 						</div>
 
@@ -76,9 +108,11 @@ const Account = () => {
 							<input
 								type="email"
 								id="email"
+								value={email}
 								className="bg-gray-200 p-3 rounded-md"
 								placeholder="Enter email"
 								required
+								onChange={(e) => setEmail(e.target.value)}
 							/>
 						</div>
 
@@ -90,9 +124,11 @@ const Account = () => {
 							<input
 								type="text"
 								id="address"
+								value={address}
 								className="bg-gray-200 p-3 rounded-md"
 								placeholder="Enter address"
 								required
+								onChange={(e) => setAddress(e.target.value)}
 							/>
 						</div>
 					</div>
@@ -102,9 +138,11 @@ const Account = () => {
 						<label className="font-semibold">Password Changes</label>
 						<input
 							type="password"
+							value={password}
 							className="bg-gray-200 p-3 w-full rounded-md mt-2"
 							placeholder="Current Password"
 							required
+							onChange={(e) => setPassword(e.target.value)}
 						/>
 						<input
 							type="password"
@@ -114,9 +152,11 @@ const Account = () => {
 						/>
 						<input
 							type="password"
+							value={confirmPassword}
 							className="bg-gray-200 p-3 w-full rounded-md mt-2"
 							placeholder="Confirm New Password"
 							required
+							onChange={(e) => setConfirmPassword(e.target.value)}
 						/>
 					</div>
 
@@ -125,7 +165,9 @@ const Account = () => {
 						<button className="text-gray-700 bg-gray-200 p-3 rounded-md px-6">
 							Cancel
 						</button>
-						<button className="bg-red-500 hover:bg-red-400 text-white px-5 py-2 rounded-md">
+						<button
+							onClick={submitChanges}
+							className="bg-red-500 hover:bg-red-400 text-white px-5 py-2 rounded-md">
 							Save Changes
 						</button>
 					</div>
