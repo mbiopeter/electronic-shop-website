@@ -52,7 +52,7 @@ function App() {
             <Route path="/wishlist" element={<WishList />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/account" element={<Account />} />
-            <Route path="/billing" element={<Billing />} />
+            <Route path="/billing" element={<Billing billedItems={items}/>} />
             <Route path="/product/:productId" element={<Product items={items} setItems={setItems} />} />
             <Route path="/category/:categoryId" element={<Category />} />
             <Route path="/category/:categoryId/:subcategory" element={<SubCategory />} />
