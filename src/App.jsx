@@ -23,9 +23,6 @@ import SubCategory from "./views/subCategory/SubCategory";
 import { cartItems } from "./model/cart/cart";
 import History from "./views/pages/history/History";
 import Cancellation from "./views/pages/cancellation/Cancellation";
-import Orders from "./views/pages/orders/Orders";
-import OrderTracking from "./views/pages/orders/Orders";
-import { history } from "./model/products/products";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
