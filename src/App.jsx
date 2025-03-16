@@ -22,6 +22,8 @@ import Error404 from "./views/pages/error/Error404";
 import Category from "./views/pages/category/Category";
 import SubCategory from "./views/subCategory/SubCategory";
 import { cartItems } from "./model/cart/cart";
+import History from "./views/pages/history/History";
+import Cancellation from "./views/pages/cancellation/Cancellation";
 
 const ScrollToTop = () => {
 	const { pathname } = useLocation();
@@ -37,6 +39,7 @@ const NotFound = () => <Error404 />;
 
 function App() {
 	const [items, setItems] = useState(cartItems);
+
 	return (
 		<PrimeReactProvider>
 			<Router>
@@ -57,7 +60,9 @@ function App() {
 						<Route path="/contact" element={<Contact />} />
 						<Route path="/account" element={<Account />} />
 						<Route path="/orders" element={<Orders />} />
-						<Route path="/billing" element={<Billing />} />
+						<Route path="/history" element={<History />} />
+						<Route path="/cancellation" element={<Cancellation />} />
+						<Route path="/billing" element={<Billing billedItems={items} />} />
 						<Route
 							path="/product/:productId"
 							element={<Product items={items} setItems={setItems} />}
@@ -75,6 +80,7 @@ function App() {
 			</Router>
 		</PrimeReactProvider>
 	);
+	s;
 }
 
 export default App;

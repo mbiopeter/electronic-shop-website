@@ -15,33 +15,5 @@ export const slides = [
         title: "Limited Time Offer",
         discount: "Exclusive Deals Await",
         buttonText: "Discover More",
-    },
-    {
-        id: 2,
-        image: slider2,
-        title: "Limited Time Offer",
-        discount: "Exclusive Deals Await",
-        buttonText: "Discover More",
-    },
-    {
-        id: 2,
-        image: slider2,
-        title: "Limited Time Offer",
-        discount: "Exclusive Deals Await",
-        buttonText: "Discover More",
-    },
-    {
-        id: 2,
-        image: slider2,
-        title: "Limited Time Offer",
-        discount: "Exclusive Deals Await",
-        buttonText: "Discover More",
-    },
-    {
-        id: 2,
-        image: slider2,
-        title: "Limited Time Offer",
-        discount: "Exclusive Deals Await",
-        buttonText: "Discover More",
-    },
+    }
 ];

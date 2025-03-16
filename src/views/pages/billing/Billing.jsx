@@ -1,33 +1,14 @@
 import React from 'react';
 import { TextField, Radio, Button, Checkbox } from '@mui/material';
 import { CreditCard, LocalShipping, } from '@mui/icons-material';
-
-import product1 from '../../../assets/images/product1.png';
-import product2 from '../../../assets/images/product2.png';
-
-const billedItems = [
-    {
-        img:product1,
-        name:'Prodct 1',
-        count:1,
-        amount:650,
-        shipping:0
-    },
-    {
-        img:product2,
-        name:'Prodct 2',
-        count:2,
-        amount:1100,
-        shipping:0
-    }
-];
+import img from '../../../assets/images/slider1.png';
 
 
-const Billing = () => {
+const Billing = ({billedItems}) => {
     let total = 0;
     let shipping = 0;
     billedItems.map((item) => {
-        total += item.count * item.amount;
+        total += item.quantity * item.price;
         shipping += item.shipping;
     })
 
@@ -73,12 +54,12 @@ const Billing = () => {
                                 {billedItems.map((item, index) => (
                                     <tr key={index}>
                                         <td className="flex justify-start flex-row gap-5 items-center py-5 min-w-[150px]">
-                                            <img src={item.img} className="object-cover h-[30px] w-[30px] overflow-hidden" />
-                                            <span>{item.name}</span>
+                                            <img src={img} className="object-fit h-[30px] w-[30px] overflow-hidden" />
+                                            <span>{item.product}</span>
                                         </td>
-                                        <td className=' min-w-[100px]'>{item.count}</td>
-                                        <td className=' min-w-[200px]'>${item.amount}</td>
-                                        <td className=' min-w-[200px]'>${item.count * item.amount}</td>
+                                        <td className=' min-w-[100px]'>{item.quantity}</td>
+                                        <td className=' min-w-[200px]'>${item.price}</td>
+                                        <td className=' min-w-[200px]'>${item.quantity * item.price}</td>
                                     </tr>
                                 ))}
                                 <tr>

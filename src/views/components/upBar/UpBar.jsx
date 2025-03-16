@@ -42,10 +42,12 @@ const UpBar = ({ cartItems }) => {
 		},
 		{
 			name: "My Cancellations",
+			to:"/cancellation",
 			icon: <DoNotDisturbIcon fontSize="small" className="text-[#FAFAFA]" />,
 		},
 		{
-			name: "My Reviews",
+			name: "My Previews",
+			to: "/history",
 			icon: <PreviewIcon fontSize="small" className="text-[#FAFAFA]" />,
 		},
 		{
@@ -154,7 +156,7 @@ const UpBar = ({ cartItems }) => {
 							className="absolute top-full z-100 right-[58px] lg:right-[140px] w-[250px] bg-[#1E1F55FF] opacity-[0.9] backdrop-blur-lg shadow-lg rounded-sm p-2">
 							<ul className="flex flex-col space-y-2">
 								{userDropdownData.map((item, index) => (
-									<Link to={item.to}>
+									<Link onClick={() => setDropdownVisible(false)} to={item.to}>
 										<li
 											key={index}
 											className={`text-[16px] text-[#FAFAFA] font-[400] flex items-center gap-2 p-2 hover:bg-[#000000] cursor-pointer ${
