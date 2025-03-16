@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Rating } from "primereact/rating";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import delivery from '../../../assets/images/delivery.png';
 import reload from '../../../assets/images/reload.png';
 import SubHeading from '../../components/subheading/Subheading';
 import Products from '../../components/products/Products';
-import { allProducts, explore, getProductById, isProductLiked, wishList } from '../../../model/products/products';
+import { allProducts, explore, getProductById, history, isHistory, isProductLiked, wishList } from '../../../model/products/products';
 import { useParams } from 'react-router-dom';
-import { isOrderPlaced } from '../../../model/cart/cart';
+import { cartItems, isOrderPlaced } from '../../../model/cart/cart';
 
 const colors = ['#00FF66', '#e6a925', '#DB4444'];
 const sizes = ['XS', 'S', 'M', 'L', 'XL'];
@@ -59,6 +59,11 @@ const Product = ({items, setItems}) => {
 
         setItems((prevItems) => [...prevItems, newItem]);
     };
+
+    
+	useEffect(() => {
+        !isHistory(history, productId) && history.push(product);
+    },[productId])
 
     return (
         <div className='w-full flex flex-col py-5 px-5 lg:px-20'>

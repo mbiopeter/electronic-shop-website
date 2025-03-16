@@ -1,10 +1,10 @@
-import React, {useState } from "react";
+import React, {useEffect, useState } from "react";
 import "primeicons/primeicons.css";
 import { Rating } from "primereact/rating";
 import { Link } from "react-router-dom";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { allProducts, isProductLiked, wishList } from "../../../model/products/products";
+import { allProducts, history, isHistory, isProductLiked, wishList } from "../../../model/products/products";
 const Products = ({ item }) => {
 	
 	const discount = Math.round((item.offerPrice - item.price) / item.price * 100);
