@@ -41,6 +41,7 @@ const UpBar = ({cartItems}) => {
 		},
 		{
 			name: "My Cancellations",
+			to:"/cancellation",
 			icon: <DoNotDisturbIcon fontSize="small" className="text-[#FAFAFA]" />,
 		},
 		{
