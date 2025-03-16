@@ -21,6 +21,7 @@ import Error404 from "./views/pages/error/Error404";
 import Category from "./views/pages/category/Category";
 import SubCategory from "./views/subCategory/SubCategory";
 import { cartItems } from "./model/cart/cart";
+import History from "./views/pages/history/History";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -52,6 +53,7 @@ function App() {
             <Route path="/wishlist" element={<WishList />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/account" element={<Account />} />
+            <Route path="/history" element={<History />} />
             <Route path="/billing" element={<Billing billedItems={items}/>} />
             <Route path="/product/:productId" element={<Product items={items} setItems={setItems} />} />
             <Route path="/category/:categoryId" element={<Category />} />

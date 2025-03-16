@@ -44,7 +44,8 @@ const UpBar = ({cartItems}) => {
 			icon: <DoNotDisturbIcon fontSize="small" className="text-[#FAFAFA]" />,
 		},
 		{
-			name: "My Reviews",
+			name: "My Previews",
+			to: "/history",
 			icon: <PreviewIcon fontSize="small" className="text-[#FAFAFA]" />,
 		},
 		{
